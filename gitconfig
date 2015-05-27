@@ -1,0 +1,8 @@
+[user]
+	name = Scott Berrevoets
+	email = s.berrevoets@me.com
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[push]
+	default = current
