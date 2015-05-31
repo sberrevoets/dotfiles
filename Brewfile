@@ -1,0 +1,7 @@
+brew 'class-dump'
+brew 'cocoapods'
+brew 'hub'
+brew 'lynx'
+brew 'openssh'
+brew 'openssl'
+brew 'zsh'
