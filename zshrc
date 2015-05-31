@@ -80,6 +80,8 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias gbda='git branch --merged | grep -vE "^(\*|\s*master\s*$)" | xargs git branch -d'
+alias gcam='git commit --amend -C HEAD'
+
 alias instant='cd ~/Developer/instant'
 alias phoenix='cd ~/Developer/Lyft-iOS'
 alias git=hub
