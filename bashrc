@@ -1,1 +1,7 @@
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export DOTFILES="$(dirname $(readlink $HOME/.bashrc))"
+
+configs=($DOTFILES/*/*.bash)
+for file in ${configs[@]}
+do
+  source $file
+done
