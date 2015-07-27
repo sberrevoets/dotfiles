@@ -87,5 +87,7 @@ alias instant='cd ~/Developer/instant'
 alias phoenix='cd ~/Developer/Lyft-iOS'
 
 alias git=hub
+alias gpr='git pull-request'
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
