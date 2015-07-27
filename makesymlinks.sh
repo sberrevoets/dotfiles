@@ -1,7 +1,6 @@
 #!/bin/bash
 ######################
-# makesymlinks.sh
-# This script creates symlinks from the home directory to all files from ~/dotfiles
+# Creates symlinks from the home directory to the specified files
 ######################
 
 dir=~/dotfiles
