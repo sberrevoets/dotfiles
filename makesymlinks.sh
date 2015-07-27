@@ -5,7 +5,7 @@
 ######################
 
 dir=~/dotfiles
-files="bashrc fzf lldbinit oh-my-zsh zshrc gitconfig"
+files="bashrc fzf lldbinit oh-my-zsh zshrc gitconfig vimrc"
 
 ####
 cd $dir
