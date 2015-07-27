@@ -81,8 +81,11 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 
 alias gcam='git commit --amend -C HEAD'
 
+alias rake='noglob rake'
+
 alias instant='cd ~/Developer/instant'
 alias phoenix='cd ~/Developer/Lyft-iOS'
+
 alias git=hub
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
