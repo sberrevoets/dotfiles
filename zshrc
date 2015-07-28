@@ -89,5 +89,13 @@ alias phoenix='cd ~/Developer/Lyft-iOS'
 alias git=hub
 alias gpr='git pull-request'
 
+export DOTFILES="$(dirname $(readlink $HOME/.zshrc))"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Find and source all zsh files
+typeset -U configs
+configs=($DOTFILES/*/*.bash $DOTFILES/*/*.zsh)
+for file in ${configs:#*/completions.zsh}
+do
+    source $file
+done
+
