@@ -117,7 +117,7 @@
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
-				<string>~/dotfiles/sim.py --device={query}</string>
+				<string>~/dotfiles/osx/sim.py --device={query}</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
