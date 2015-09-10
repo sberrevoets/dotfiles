@@ -91,10 +91,9 @@ alias gpr='git pull-request'
 
 export DOTFILES="$(dirname $(readlink $HOME/.zshrc))"
 
-# Find and source all zsh files
-typeset -U configs
+# Find and source all bash files
 configs=($DOTFILES/*/*.bash)
-file in ${configs:#*/completions.zsh}
+for file in ${configs:#*/completions.zsh}
 do
     source $file
 done
