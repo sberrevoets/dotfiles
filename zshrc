@@ -93,8 +93,8 @@ export DOTFILES="$(dirname $(readlink $HOME/.zshrc))"
 
 # Find and source all zsh files
 typeset -U configs
-configs=($DOTFILES/*/*.bash $DOTFILES/*/*.zsh)
-for file in ${configs:#*/completions.zsh}
+configs=($DOTFILES/*/*.bash)
+file in ${configs:#*/completions.zsh}
 do
     source $file
 done
