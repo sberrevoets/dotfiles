@@ -27,3 +27,5 @@ defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
 # Open quickly opens in the focused pane
 defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_Click -string "FocusedEditor"
 
+# Don't open Photos when a new device is plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
