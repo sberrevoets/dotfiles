@@ -14,4 +14,5 @@ if exists('+colorcolumn')
     highlight ColorColumn guibg=#2d2d2d ctermbg=233
 endif
 
+ca w!! w !sudo tee "%"
 
