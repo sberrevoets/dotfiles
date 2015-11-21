@@ -6,3 +6,5 @@
 	smudge = git-media-smudge %f
 [push]
 	default = current
+[rebase]
+	autosquash = true
