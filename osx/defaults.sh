@@ -38,6 +38,11 @@ chflags nohidden ~/Library
 # Don't open Photos when a new device is plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
+### Mail
+
+# Use ⌘ + Enter to send an email
+defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\U21a9"
+
 ### Xcode
 
 # Trim trailing whitespace
