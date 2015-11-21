@@ -24,3 +24,11 @@ endif
 " Use w!! for saving new files
 ca w!! w !sudo tee "%"
 
+" Use system pasteboard
+if has('clipboard')
+    set clipboard=unnamed
+
+    if has('unnamedplus')
+        set clipboard+=unnamedplus
+    endif
+endif
