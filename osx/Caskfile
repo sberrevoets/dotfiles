@@ -3,6 +3,7 @@ cask 'bettertouchtool'
 cask 'coderunner'
 cask 'dropbox'
 cask 'licecap'
+cask 'qlmarkdown'
 cask 'textwrangler'
 cask 'the-unarchiver'
 
