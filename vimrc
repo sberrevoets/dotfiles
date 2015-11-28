@@ -19,6 +19,12 @@ set smartcase           " Use case sensitive search for non-lowercase searches
 set softtabstop=4       " Number of columns per tab
 set textwidth=80        " Number of columns before wrapping
 
+" Force using h, j, k, l. We'll see how it goes...
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+
 highlight LineNr ctermfg=238
 if exists('+colorcolumn')
     execute "set colorcolumn=" . join(map(range(1, 259), '"+" . v:val'), ',')
