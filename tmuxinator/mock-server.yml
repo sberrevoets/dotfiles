@@ -1,0 +1,11 @@
+name: mock-server
+root: ~/Developer/mock-lyft-api
+
+windows:
+  - editor:
+      layout: tiled
+      panes:
+        - ngrok -subdomain apisberrevoets 3000
+        - foreman start -f Procfile.dev
+        - ngrok -subdomain atssberrevoets 3000
+        - #
