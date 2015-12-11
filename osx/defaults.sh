@@ -38,6 +38,11 @@ chflags nohidden ~/Library
 # Don't open Photos when a new device is plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
+### iTunes
+
+# Disable device update alerts
+com.apple.iTunes disableCheckForDeviceUpdates -bool YES
+
 ### Mail
 
 # Use ⌘ + Enter to send an email
