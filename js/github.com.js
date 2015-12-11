@@ -3,12 +3,12 @@ $(document).ready(function() {
         return;
     }
 
-    show_additional_comment_buttons();
+    showAdditionalCommentButtons();
 
     var observer = new WebKitMutationObserver(function(mutations, observer) {
         var button = $('#thumb-and-label-submit');
         if (button.length === 0) {
-            show_additional_comment_buttons();
+            showAdditionalCommentButtons();
         }
     });
 
@@ -18,7 +18,7 @@ $(document).ready(function() {
     });
 })
 
-function create_button(title, handler) {
+function createButton(title, handler) {
     var button = document.createElement('button');
     button.innerHTML = title;
     button.className = 'btn';
@@ -29,7 +29,7 @@ function create_button(title, handler) {
     return button;
 }
 
-function submit_comment_and_add_label(event) {
+function submitCommentAndAddLabel(event) {
     event.stopPropagation();
 
     // Enter and submit comment
@@ -39,21 +39,33 @@ function submit_comment_and_add_label(event) {
     textarea.val(currentValue + ":+1:");
 
     // Add reviewer label
-    $('.sidebar-labels').find('button')[0].click();
-    setTimeout(function() {
-        $('input[type="checkbox"][value="scott"]')[0].click();
-        setTimeout(function() {
-            commentForm.find('.btn-primary')[0].click();
-        }, 200);
-    }, 500);
+    var URL = document.URL.replace(/https:\/\/github.com\/lyft\//, "");
+    var repoEndIndex = URL.indexOf("/")
+    var repo = URL.substring(0, repoEndIndex)
+
+    var pullRequestStartIndex = URL.lastIndexOf("/");
+    var pullRequest = URL.substring(pullRequestStartIndex + 1);
+
+    addLabelToPR("scott", repo, pullRequest)
 }
 
-function insert_buttons(element) {
-    var button = create_button("👍🏻", submit_comment_and_add_label);
+function addLabelToPR(label, repo, pullRequest) {
+    var requestURL = "https://api.github.com/repos/lyft/" + repo + "/issues/" + pullRequest + "/labels"
+
+    $.ajax({
+        type: "POST",
+        url: requestURL,
+        headers: { "Authorization": "token " + getGitHubToken() },
+        data: "[\"" + label + "\"]",
+    });
+}
+
+function insertButtons(element) {
+    var button = createButton("👍🏻", submitCommentAndAddLabel);
     $('#partial-new-comment-form-actions').append(button);
 }
 
-function show_additional_comment_buttons() {
+function showAdditionalCommentButtons() {
     var lastBubble = $('.timeline-new-comment.js-comment-container').last();
-    insert_buttons(lastBubble);
+    insertButtons(lastBubble);
 }
