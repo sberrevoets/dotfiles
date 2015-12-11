@@ -6,6 +6,8 @@ alias gwtc='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
 
 alias rake='noglob rake'
 
+alias df='cd ~/dotfiles'
+
 # Lyft
 alias instant='cd ~/Developer/instant'
 alias phoenix='cd ~/Developer/Lyft-iOS'
