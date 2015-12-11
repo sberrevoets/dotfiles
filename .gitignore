@@ -36,3 +36,6 @@ Session.vim
 .netrwhist
 *~
 
+# Secrets
+netrc
+js/com.js
