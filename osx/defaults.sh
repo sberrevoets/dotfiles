@@ -68,3 +68,7 @@ defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_Click -string "Focu
 # Show build time in toolbar
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
 
+### Tweetbot
+
+# No t.co
+defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
