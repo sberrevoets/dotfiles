@@ -3,6 +3,7 @@ alias git=hub
 alias gpr='git pull-request'
 alias gcam='git commit --amend -C HEAD'
 alias gwtc='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
+alias gcfh='git commit --fixup=HEAD'
 
 alias rake='noglob rake'
 
