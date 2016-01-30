@@ -7,6 +7,7 @@ set expandtab           " Replace tabs with spaces
 set hlsearch            " Highlight search terms
 set ignorecase          " Use case insensitive search
 set incsearch           " Show search terms as you type
+set nojoinspaces        " Don't add spaces when using J
 set nostartofline       " Don't reset cursor to start of line when moving
 set number              " Enable line numbers
 set numberwidth=3       " Line gutter width
