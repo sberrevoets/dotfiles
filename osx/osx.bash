@@ -1,3 +1,5 @@
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 # CocoaPods
 alias pi='pod install'
 
