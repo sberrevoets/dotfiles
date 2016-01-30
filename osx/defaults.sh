@@ -38,10 +38,16 @@ chflags nohidden ~/Library
 # Don't open Photos when a new device is plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
+# Close printer window when print task finishes
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# Enable ⌘ + Q for Finder
+defaults write com.apple.finder QuitMenuItem -bool true
+
 ### iTunes
 
 # Disable device update alerts
-com.apple.iTunes disableCheckForDeviceUpdates -bool YES
+defaults write com.apple.iTunes disableCheckForDeviceUpdates -bool YES
 
 ### Mail
 
