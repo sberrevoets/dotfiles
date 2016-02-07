@@ -1,4 +1,7 @@
 tap 'homebrew/bundle'
+tap 'sberrevoets/formulae'
+
+brew 'sberrevoets/formulae/urlview', args: ['HEAD']
 
 brew 'cask'
 brew 'class-dump'
@@ -10,6 +13,5 @@ brew 'openssl'
 brew 'rbenv'
 brew 'ruby-install'
 brew 'tmux'
-brew 'urlview'
 brew 'vim'
 brew 'zsh'

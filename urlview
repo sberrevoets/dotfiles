@@ -4,5 +4,6 @@
 # Match those same characters in parens
 # Match those characters afterwards
 # Exclude some characters from the end
-REGEXP
-(https?:///?|www.)[a-zA-Z0-9.-]+[:+\!$;=%&?#a-zA-Z0-9/._-]+(\([:+\!$;=%&?#a-zA-Z0-9/._-]+\)|[:+\!$;=%&?#a-zA-Z0-9/._-]+)[:+\!$;=%&?#a-zA-Z0-9/_-]+
+REGEXP (https?:///?|www.)[a-zA-Z0-9.-]+[:+\!$;=%&?#a-zA-Z0-9/._-]+(\([:+\!$;=%&?#a-zA-Z0-9/._-]+\)|[:+\!$;=%&?#a-zA-Z0-9/._-]+)[:+\!$;=%&?#a-zA-Z0-9/_-]+
+
+QUITONLAUNCH
