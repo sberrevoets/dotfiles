@@ -1,3 +1,5 @@
+tap 'homebrew/bundle'
+
 brew 'cask'
 brew 'class-dump'
 brew 'cocoapods'
