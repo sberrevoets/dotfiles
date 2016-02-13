@@ -1,3 +1,4 @@
+cask 'aerial'
 cask 'alfred'
 cask 'bettertouchtool'
 cask 'coderunner'
