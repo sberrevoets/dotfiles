@@ -62,4 +62,5 @@ ca w!! w !sudo tee "%"
 call plug#begin()
 Plug 'keith/swift.vim'
 Plug 'keith/tmux.vim'
+Plug 'tpope/vim-surround'
 call plug#end()
