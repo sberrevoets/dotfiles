@@ -35,6 +35,7 @@ Temporary Items
 Session.vim
 .netrwhist
 *~
+vim/plugged
 
 # Secrets
 netrc

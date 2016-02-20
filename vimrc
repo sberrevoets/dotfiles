@@ -37,3 +37,9 @@ endif
 " Use w!! for saving new files
 ca w!! w !sudo tee "%"
 
+" Plugins
+
+call plug#begin()
+Plug 'keith/swift.vim'
+Plug 'keith/tmux.vim'
+call plug#end()
