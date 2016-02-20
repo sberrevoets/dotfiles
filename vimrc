@@ -22,11 +22,17 @@ set smartcase                  " Use case sensitive search for non-lowercase sea
 set softtabstop=4              " Number of columns per tab
 set textwidth=80               " Number of columns before wrapping
 
+" Use space as leader
+let mapleader = "\<Space>"
+
 " Force using h, j, k, l. We'll see how it goes...
 map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
+
+" Clear search easily
+nmap <silent> <Leader>/ :nohlsearch<CR>
 
 highlight LineNr ctermfg=238
 if exists('+colorcolumn')
