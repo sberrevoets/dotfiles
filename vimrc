@@ -35,6 +35,10 @@ imap <Right> <Nop>
 imap <Up> <Nop>
 imap <Down> <Nop>
 
+" Easy writing/quitting
+nnoremap W :write<CR>
+nnoremap Q :quit<CR>
+
 " Clear search easily
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
