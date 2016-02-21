@@ -42,6 +42,9 @@ nnoremap Q :quit<CR>
 " Easier movement
 nnoremap H ^
 vnoremap H ^
+nnoremap L $
+vnoremap L $
+
 nnoremap j gj
 nnoremap k gk
 
