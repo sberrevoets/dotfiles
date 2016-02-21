@@ -1,0 +1,18 @@
+set clipboard=unnamed
+set hlsearch
+set ignorecase
+set incsearch
+set number
+set relativenumber
+set smartcase
+
+" Easier movement
+nnoremap H ^
+vnoremap H ^
+nnoremap L $
+vnoremap L $
+
+nnoremap j gj
+vnoremap j gj
+nnoremap k gk
+vnoremap k gk
