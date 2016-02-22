@@ -66,4 +66,5 @@ call plug#begin()
 Plug 'keith/swift.vim'
 Plug 'keith/tmux.vim'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 call plug#end()

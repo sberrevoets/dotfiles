@@ -6,6 +6,10 @@ set number
 set relativenumber
 set smartcase
 
+" Add blank line like vim-unimpaired
+nnoremap [<Space> O<Esc>
+nnoremap ]<Space> o<Esc>
+
 " Easier movement
 nnoremap H ^
 vnoremap H ^
