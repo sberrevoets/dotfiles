@@ -48,6 +48,8 @@ vnoremap L $
 nnoremap j gj
 nnoremap k gk
 
+nnoremap <Leader>o :CtrlP<CR>
+
 " Clear search easily
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
@@ -67,4 +69,5 @@ Plug 'keith/swift.vim'
 Plug 'keith/tmux.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
