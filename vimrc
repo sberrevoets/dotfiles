@@ -48,6 +48,11 @@ vnoremap L $
 nnoremap j gj
 nnoremap k gk
 
+" Easy go-to-line navigation (<line number> + return)
+nnoremap <CR> G
+vnoremap <CR> G
+
+" Ctrl P
 nnoremap <Leader>o :CtrlP<CR>
 
 " Clear search easily
