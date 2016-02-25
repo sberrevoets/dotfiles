@@ -55,6 +55,10 @@ vnoremap <CR> G
 " Ctrl P
 nnoremap <Leader>o :CtrlP<CR>
 
+" vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
 " Clear search easily
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
@@ -75,4 +79,5 @@ Plug 'keith/tmux.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-expand-region'
 call plug#end()
