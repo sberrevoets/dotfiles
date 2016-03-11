@@ -78,10 +78,11 @@ ca w!! w !sudo tee "%"
 
 call plug#begin()
 Plug 'commentary.vim'
+Plug 'ctrlp.vim'
 Plug 'keith/swift.vim'
 Plug 'keith/tmux.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-expand-region'
+Plug 'wellle/targets.vim'
 call plug#end()
