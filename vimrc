@@ -59,6 +59,9 @@ nnoremap <Leader>o :CtrlP<CR>
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+" commentary
+map <Leader>/ <Plug>Commentary
+
 " Clear search easily
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
@@ -74,6 +77,7 @@ ca w!! w !sudo tee "%"
 " Plugins
 
 call plug#begin()
+Plug 'commentary.vim'
 Plug 'keith/swift.vim'
 Plug 'keith/tmux.vim'
 Plug 'tpope/vim-surround'
