@@ -1,0 +1,8 @@
+# The contents of this directory shouldn't be persisted, but to make persistent
+# undos work, vim requires the directory to be there, which this file ensures.
+
+# Ignore everything in this directory
+*
+
+# Except this file
+!.gitignore

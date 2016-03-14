@@ -12,6 +12,8 @@ set nojoinspaces               " Don't add spaces when using J
 set nostartofline              " Don't reset cursor to start of line when moving
 set number                     " Enable line numbers
 set numberwidth=3              " Line gutter width
+set undofile                   " Save undos after closing file
+set undodir=./vim/undodir      " Set directory for persistent undo files
 set relativenumber             " Show line numbers relative to current line
 set scrolloff=5                " Scroll when nearing window border
 set shiftwidth=4               " Indentation in spaces
