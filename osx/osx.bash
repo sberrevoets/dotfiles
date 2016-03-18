@@ -1,5 +1,9 @@
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# Open quickly
+alias o='open'
+alias oo='open .'
+
 # CocoaPods
 alias pi='pod install'
 
