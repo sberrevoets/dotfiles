@@ -8,12 +8,11 @@ set expandtab                  " Replace tabs with spaces
 set hlsearch                   " Highlight search terms
 set ignorecase                 " Use case insensitive search
 set incsearch                  " Show search terms as you type
+set noerrorbells               " No beeping please
 set nojoinspaces               " Don't add spaces when using J
 set nostartofline              " Don't reset cursor to start of line when moving
 set number                     " Enable line numbers
 set numberwidth=3              " Line gutter width
-set undofile                   " Save undos after closing file
-set undodir=./vim/undodir      " Set directory for persistent undo files
 set relativenumber             " Show line numbers relative to current line
 set scrolloff=5                " Scroll when nearing window border
 set shiftwidth=4               " Indentation in spaces
@@ -23,6 +22,9 @@ set showmode                   " Show current mode
 set smartcase                  " Use case sensitive search for non-lowercase searches
 set softtabstop=4              " Number of columns per tab
 set textwidth=80               " Number of columns before wrapping
+set undodir=./vim/undodir      " Set directory for persistent undo files
+set undofile                   " Save undos after closing file
+set visualbell                 " No beeping please
 
 " Use space as leader
 let mapleader = "\<Space>"
