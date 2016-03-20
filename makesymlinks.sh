@@ -4,7 +4,8 @@
 ######################
 
 dir=~/dotfiles
-files="bashrc fzf gitconfig js lldbinit oh-my-zsh tmuxinator urlview vimrc zshrc"
+files="bashrc fzf gitconfig js lldbinit oh-my-zsh tmux.conf tmuxinator urlview vimrc
+xvimrc zshrc"
 
 ####
 cd $dir
