@@ -1,10 +1,40 @@
 [user]
 	name = Scott Berrevoets
 	email = s.berrevoets@me.com
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
 [push]
 	default = current
 [rebase]
 	autosquash = true
+[alias]
+    a       = add
+    ap      = add -p
+    b       = branch
+    bda     = !sh -c 'git branch --merged | command grep -vE "^(\\*|\\s*master\\s*$)" | command xargs -n 1 git branch -d'
+    c       = commit -v
+    ca      = commit -v --amend --no-edit
+    cb      = checkout -b
+    cfh     = commit --fixup=HEAD
+    cm      = checkout master
+    co      = checkout
+    cp      = cherry-pick
+    d       = diff
+    dc      = diff --cached
+    l       = pull
+    lg      = log --graph
+    m       = merge
+    p       = push
+    pr      = !sh -c 'hub pull-request'
+    rb      = rebase
+    rba     = rebase --abort
+    rbc     = rebase --continue
+    rbm     = rebase master
+    rbmi    = rebase master -i
+    rh      = reset HEAD
+    rhh     = reset HEAD --hard
+    rhs     = reset HEAD --soft
+    s       = status
+    sh      = show
+    st      = stash
+    stp     = stash pop
+    su      = submodule update --init --recursive
+    wtc     = !sh -c 'git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
