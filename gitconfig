@@ -38,3 +38,5 @@
     stp     = stash pop
     su      = submodule update --init --recursive
     wtc     = !sh -c 'git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
+[rerere]
+	enabled = true
