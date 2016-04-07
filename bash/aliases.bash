@@ -1,11 +1,13 @@
-# Git
-alias git=hub
-alias gpr='git pull-request'
-alias gcam='git commit --amend -C HEAD'
-alias gwtc='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
-alias gcfh='git commit --fixup=HEAD'
+alias .=pwd
 
-alias rake='noglob rake'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias l='ls -lFh'
+
+alias g=git
+
 
 alias df='cd ~/dotfiles'
 
