@@ -4,10 +4,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias l='ls -lFh'
+alias l='ls -lFhG'
 
 alias g=git
-
 
 alias df='cd ~/dotfiles'
 
