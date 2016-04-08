@@ -1,5 +1,6 @@
 alias .=pwd
 
+alias -- -='cd -'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
