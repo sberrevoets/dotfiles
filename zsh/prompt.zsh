@@ -32,6 +32,4 @@ function set_prompt() {
     PROMPT="$fg_bold[magenta][%*]$fg_bold[green] $(get_pwd)$git_info$reset_color "
 }
 
-function precmd() {
-    set_prompt
-}
+add-zsh-hook precmd set_prompt
