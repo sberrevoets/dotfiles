@@ -7,6 +7,9 @@ bindkey '^R' history-incremental-search-backward
 # Load zsh hooks
 autoload -U add-zsh-hook
 
+# Advanced completions
+autoload -U compinit && compinit
+
 # Insert quotes around typed URLs
 autoload -U url-quote-magic
 
