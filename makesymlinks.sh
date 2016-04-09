@@ -7,7 +7,6 @@ dir=~/dotfiles
 files=(bashrc \
        gitconfig \
        js \
-       lldbinit \
        tmux.conf \
        tmuxinator \
        urlview \
