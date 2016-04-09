@@ -22,14 +22,14 @@ function current_branch_or_commit() {
 
 function set_prompt() {
     if [ -n "$(git status --porcelain 2> /dev/null)" ]; then
-        local git_dirty=" $fg[red]✗"
+        local git_dirty=" %{$fg[red]%}✗"
     fi
 
     if [ -n "$(git rev-parse --git-dir 2> /dev/null)" ]; then
-        local git_info=" $fg_bold[blue]($(current_branch_or_commit)$git_dirty$fg_bold[blue])"
+        local git_info=" %{$fg_bold[blue]%}($(current_branch_or_commit)$git_dirty%{$fg_bold[blue]%})"
     fi
 
-    PROMPT="$fg_bold[magenta][%*]$fg_bold[green] $(get_pwd)$git_info$reset_color "
+    PROMPT="%{$fg_bold[magenta]%}[%*]%{$fg_bold[green]%} $(get_pwd)$git_info%{$reset_color%} "
 }
 
 add-zsh-hook precmd set_prompt
