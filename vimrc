@@ -39,6 +39,9 @@ imap <Right> <Nop>
 imap <Up> <Nop>
 imap <Down> <Nop>
 
+" Sane behavior please
+nnoremap Y y$
+
 " Easy writing/quitting
 nnoremap W :write<CR>
 nnoremap Q :quit<CR>
@@ -79,7 +82,6 @@ endif
 ca w!! w !sudo tee "%"
 
 " Plugins
-
 call plug#begin()
 Plug 'commentary.vim'
 Plug 'ctrlp.vim'
