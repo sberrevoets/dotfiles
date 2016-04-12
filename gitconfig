@@ -13,12 +13,12 @@
     c       = commit -v
     ca      = commit -v --amend --no-edit
     cb      = checkout -b
-    cfh     = commit --fixup=HEAD
     cm      = checkout master
     co      = checkout
     cp      = cherry-pick
     d       = diff
     dc      = diff --cached
+    f       = commit --fixup=HEAD
     l       = pull
     lg      = log --graph
     m       = merge
