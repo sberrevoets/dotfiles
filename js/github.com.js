@@ -1,15 +1,17 @@
 $(document).ready(function() {
-    if (document.URL.indexOf("lyft") < 0) {
-        return;
+    if (isLyftRepo()) {
+        showAdditionalCommentButtons();
     }
 
-    showAdditionalCommentButtons();
+    hideUnwantedElements();
 
     var observer = new WebKitMutationObserver(function(mutations, observer) {
         var button = $('#thumb-and-label-submit');
-        if (button.length === 0) {
+        if (isLyftRepo() && button.length === 0) {
             showAdditionalCommentButtons();
         }
+
+        hideUnwantedElements();
     });
 
     observer.observe(document, {
@@ -17,6 +19,10 @@ $(document).ready(function() {
         attributes: true
     });
 })
+
+function isLyftRepo() {
+    return document.URL.indexOf("lyft") > 0;
+}
 
 function createButton(title, handler) {
     var button = document.createElement('button');
@@ -79,4 +85,9 @@ function insertButtons(element) {
 function showAdditionalCommentButtons() {
     var lastBubble = $('.timeline-new-comment.js-comment-container').last();
     insertButtons(lastBubble);
+}
+
+function hideUnwantedElements() {
+    $('.protip').hide();
+    $('.subscribe-feed').hide();
 }
