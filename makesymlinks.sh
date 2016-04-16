@@ -6,6 +6,7 @@
 dir=~/dotfiles
 files=(bashrc \
        gitconfig \
+       gitignore \
        js \
        tmux.conf \
        tmuxinator \
