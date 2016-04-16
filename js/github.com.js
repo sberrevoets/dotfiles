@@ -4,20 +4,6 @@ $(document).ready(function() {
     }
 
     hideUnwantedElements();
-
-    var observer = new WebKitMutationObserver(function(mutations, observer) {
-        var button = $('#thumb-and-label-submit');
-        if (isLyftRepo() && button.length === 0) {
-            showAdditionalCommentButtons();
-        }
-
-        hideUnwantedElements();
-    });
-
-    observer.observe(document, {
-        subtree: true,
-        attributes: true
-    });
 })
 
 function isLyftRepo() {
