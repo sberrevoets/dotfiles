@@ -23,7 +23,7 @@
     lg      = log --graph
     m       = merge
     p       = push
-    pf      = push --force
+    P       = push --force
     pr      = !sh -c 'hub pull-request'
     rb      = rebase
     rba     = rebase --abort
