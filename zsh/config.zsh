@@ -37,3 +37,6 @@ setopt ALWAYS_TO_END
 
 # Create a directory and navigate to it
 mkcd () { mkdir "$@" && cd "$@"; }
+
+# List directory contents on cd
+cd() { command cd "$@" && l; }
