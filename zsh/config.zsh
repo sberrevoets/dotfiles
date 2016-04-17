@@ -34,3 +34,6 @@ setopt HIST_VERIFY
 
 # Move to end after completion
 setopt ALWAYS_TO_END
+
+# Create a directory and navigate to it
+mkcd () { mkdir "$@" && cd "$@"; }
