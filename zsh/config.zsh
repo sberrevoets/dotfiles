@@ -39,4 +39,4 @@ setopt ALWAYS_TO_END
 mkcd () { mkdir "$@" && cd "$@"; }
 
 # List directory contents on cd
-cd() { command cd "$@" && l; }
+cd() { builtin cd "$@" && l; }
