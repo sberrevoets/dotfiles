@@ -8,6 +8,7 @@ alias ....='cd ../../..'
 alias l='ls -lFhG'
 
 alias g=git
+alias v=vim
 
 alias df='cd ~/dotfiles'
 
