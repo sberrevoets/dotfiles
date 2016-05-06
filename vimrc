@@ -3,6 +3,8 @@ syntax on                           " Enable syntax highlighting
 set autoindent                      " Match line indent from previous line
 set autoread                        " Automatically update with changes
 set backspace=indent,eol,start      " Backspace over lines, indents, and insert start
+set breakindent                     " Indent wrapped lines
+set breakindentopt=shift:4          " How much to indent wrapped lines
 set clipboard=unnamed               " Use system clipboard
 set expandtab                       " Replace tabs with spaces
 set hlsearch                        " Highlight search terms
