@@ -7,5 +7,5 @@ windows:
       panes:
         - #
         - ngrok -subdomain stub-api-sberrevoets 3000
-        - foreman start -f Procfile.dev
+        - foreman start -f Procfile
         - ngrok -subdomain stub-ats-sberrevoets 3100
