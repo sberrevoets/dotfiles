@@ -7,6 +7,7 @@
 	autosquash = true
 [alias]
     a       = add
+    aa      = add .
     ap      = add -p
     b       = branch
     bda     = !sh -c 'git branch --merged | command grep -vE "^(\\*|\\s*master\\s*$)" | command xargs -n 1 git branch -d'
@@ -23,7 +24,7 @@
     lg      = log --graph
     m       = merge
     p       = push
-    P       = push --force
+    pf      = push --force
     pr      = !sh -c 'hub pull-request'
     rb      = rebase
     rba     = rebase --abort
