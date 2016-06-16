@@ -371,7 +371,7 @@ if not query.startswith(IGNORE_QUERIES):
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>-hue save-preset</string>
+				<string>hue save-preset</string>
 				<key>subtext</key>
 				<string>Save the current group state so that it can be set later on.</string>
 				<key>text</key>
@@ -415,7 +415,7 @@ logic.presets.save(query)</string>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>-hue set-group</string>
+				<string>hue set-group</string>
 				<key>subtext</key>
 				<string>Change which lights the Hue workflow controls.  For example: 1,2,4.  For all lights, set to 0.</string>
 				<key>text</key>
@@ -492,7 +492,7 @@ except requests.exceptions.RequestException:
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>keyword</key>
-				<string>-hue set-bridge</string>
+				<string>hue set-bridge</string>
 				<key>subtext</key>
 				<string>Press the button on the bridge then use this to enable the workflow. Optionally specify the bridge's IP.</string>
 				<key>text</key>
@@ -532,7 +532,7 @@ except requests.exceptions.RequestException:
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>-hue show-presets</string>
+				<string>hue show-presets</string>
 				<key>subtext</key>
 				<string>Use this to delete, rename, or backup presets.</string>
 				<key>text</key>
@@ -553,7 +553,7 @@ except requests.exceptions.RequestException:
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>-hue config</string>
+				<string>hue config</string>
 				<key>subtext</key>
 				<string>Use this to manually reset configuration values.</string>
 				<key>text</key>
@@ -612,7 +612,7 @@ except requests.exceptions.RequestException:
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>-hue update</string>
+				<string>hue update</string>
 				<key>queuedelaycustom</key>
 				<integer>1</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -664,7 +664,7 @@ except requests.exceptions.RequestException:
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>-hue about</string>
+				<string>hue about</string>
 				<key>subtext</key>
 				<string>Opens the Github page for this workflow.</string>
 				<key>text</key>
