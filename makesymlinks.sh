@@ -5,6 +5,7 @@
 
 dir=~/dotfiles
 files=(bashrc \
+       bin \
        gitconfig \
        gitignore \
        js \
