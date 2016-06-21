@@ -43,4 +43,9 @@
 [rerere]
 	enabled = true
 [core]
-	excludesfile = /Users/Scott/.gitignore
+	excludesfile = ~/.gitignore
+[diff]
+	compactionHeuristic = true
+       tool = vimdiff
+[interactive]
+        diffFilter = diff-highlight
