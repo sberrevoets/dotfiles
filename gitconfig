@@ -7,7 +7,7 @@
 	autosquash = true
 [alias]
     a       = add
-    aa      = add .
+    aa      = add --all
     ap      = add -p
     b       = branch
     bda     = !sh -c 'git branch --merged | command grep -vE "^(\\*|\\s*master\\s*$)" | command xargs -n 1 git branch -d'
