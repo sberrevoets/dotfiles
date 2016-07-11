@@ -6,6 +6,9 @@ set number
 set relativenumber
 set smartcase
 
+" Sane behavior please
+nnoremap Y y$
+
 " Add blank line like vim-unimpaired
 nnoremap [<Space> O<Esc>
 nnoremap ]<Space> o<Esc>
