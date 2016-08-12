@@ -74,9 +74,6 @@ defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_Click -string "Focu
 # Show build time in toolbar
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
 
-# Disable state restoration (for storyboards mostly)
-defaults write com.apple.dt.Xcode IDEDisableStateRestoration -bool true
-
 ### Tweetbot
 
 # No t.co
