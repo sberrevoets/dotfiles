@@ -72,7 +72,10 @@ defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
 defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_Click -string "FocusedEditor"
 
 # Show build time in toolbar
-defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
+defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
+
+# Show build reasons in Xcode build log
+defaults write com.apple.dt.Xcode ExplainWhyBuilCommandsAreRun -bool true
 
 ### Tweetbot
 
