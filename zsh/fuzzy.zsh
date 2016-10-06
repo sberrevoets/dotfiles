@@ -15,7 +15,7 @@ __fuzzycmd() {
 fuzzy-git-branch-widget() {
   trap "" INT
 
-  result="$(git checkout $(git branch | cut -c 3- | $(__fuzzycmd)))"
+  result="$(git branch | cut -c 3- | $(__fuzzycmd))"
   if [[ "$result" != "" ]]; then
     LBUFFER="${LBUFFER}\"$result\""
     zle redisplay
@@ -31,7 +31,6 @@ fuzzy-file-widget() {
 
 zle     -N   fuzzy-git-branch-widget
 bindkey '^B' fuzzy-git-branch-widget
-alias b=fuzzy-git-branch-widget
 
 zle     -N   fuzzy-file-widget
 bindkey '^F' fuzzy-file-widget

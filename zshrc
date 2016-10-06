@@ -5,4 +5,3 @@ for file in ${configs:#*/completions.zsh}
 do
     source $file
 done
-
