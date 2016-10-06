@@ -3,7 +3,7 @@
 
 # Copy Terminal settings
 rm ~/Library/Preferences/com.apple.Terminal.plist
-ln -s ~/dotfiles/osx/Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
+ln -s ~/dotfiles/macos/Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
 
 if ! which brew &> /dev/null; then
   echo "Installing homebrew"
