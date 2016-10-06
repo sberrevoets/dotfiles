@@ -13,3 +13,6 @@ fi
 brew update
 brew bundle --file=Brewfile
 brew bundle --file=Caskfile
+
+# Create personalized system and app defaults
+source defaults.sh
