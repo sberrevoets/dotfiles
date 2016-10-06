@@ -15,6 +15,7 @@ fuzzy-git-branch-widget() {
   if [[ "$result" != "" ]]; then
     LBUFFER="${LBUFFER}\"$result\""
     zle redisplay
+    zle accept-line
   fi
 
   trap INT
@@ -23,6 +24,7 @@ fuzzy-git-branch-widget() {
 fuzzy-file-widget() {
   LBUFFER="${LBUFFER}$(__fsel)"
   zle redisplay
+  zle accept-line
 }
 
 zle     -N   fuzzy-git-branch-widget
