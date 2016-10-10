@@ -47,6 +47,10 @@
 	excludesfile = ~/.gitignore
 [diff]
 	compactionHeuristic = true
-       tool = vimdiff
+        tool = vimdiff
 [interactive]
         diffFilter = diff-highlight
+[pager]
+        log = diff-highlight | less
+        show = diff-highlight | less
+        diff = diff-highlight | less
