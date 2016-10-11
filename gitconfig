@@ -1,10 +1,10 @@
 [user]
-	name = Scott Berrevoets
-	email = s.berrevoets@me.com
+    name = Scott Berrevoets
+    email = s.berrevoets@me.com
 [push]
-	default = current
+    default = current
 [rebase]
-	autosquash = true
+    autosquash = true
 [alias]
     a       = add
     aa      = add --all
@@ -42,15 +42,15 @@
     su      = submodule update --init --recursive
     wtc     = !sh -c 'git commit -m \""$(curl -s http://whatthecommit.com/index.txt)"\"'
 [rerere]
-	enabled = true
+    enabled = true
 [core]
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
 [diff]
-	compactionHeuristic = true
-        tool = vimdiff
+    compactionHeuristic = true
+    tool = vimdiff
 [interactive]
-        diffFilter = diff-highlight
+    diffFilter = diff-highlight
 [pager]
-        log = diff-highlight | less
-        show = diff-highlight | less
-        diff = diff-highlight | less
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
