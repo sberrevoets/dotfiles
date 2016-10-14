@@ -12,7 +12,7 @@ brew 'lynx'
 brew 'openssh'
 brew 'openssl'
 brew 'rbenv'
-brew 'reattach-to-user-namespace'
+brew 'reattach-to-user-namespace' --with-wrap-pbcopy-and-pbpaste
 brew 'rename'
 brew 'ruby-install'
 brew 'the_silver_searcher'
