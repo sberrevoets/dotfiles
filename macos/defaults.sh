@@ -75,7 +75,7 @@ defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_Click -string "Focu
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
 
 # Show build reasons in Xcode build log
-defaults write com.apple.dt.Xcode ExplainWhyBuilCommandsAreRun -bool true
+defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
 
 ### Tweetbot
 
