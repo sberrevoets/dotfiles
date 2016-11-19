@@ -6,6 +6,7 @@ brew 'sberrevoets/formulae/urlview', args: ['HEAD']
 brew 'cask'
 brew 'class-dump'
 brew 'cocoapods'
+brew 'coreutils'
 brew 'git'
 brew 'hub'
 brew 'lynx'

@@ -6,7 +6,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias l='ls -lFhG'
-
 alias g=git
 alias v=vim
 

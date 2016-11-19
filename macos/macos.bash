@@ -1,5 +1,17 @@
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
+
+# Easy ls
+if ls --color > /dev/null 2>&1; then
+    colorflag="--color" # GNU
+else
+    colorflag="-G" # Default macOS
+fi
+
+alias l='ls -lFh ${colorflag}'
+
 # Open quickly
 alias o='open'
 alias oo='open .'
