@@ -16,6 +16,7 @@ set nostartofline                   " Don't reset cursor to start of line when m
 set number                          " Enable line numbers
 set numberwidth=3                   " Line gutter width
 set relativenumber                  " Show line numbers relative to current line
+set ruler                           " Show column
 set scrolloff=10                    " Scroll when nearing window border
 set shiftwidth=4                    " Indentation in spaces
 set showcmd                         " Show current command on command line
