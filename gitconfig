@@ -24,6 +24,7 @@
     l       = pull
     lg      = log --graph
     m       = merge
+    o       = !sh -c 'hub browse'
     p       = push
     pf      = push --force
     pr      = !sh -c 'hub pull-request -o'
