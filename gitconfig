@@ -26,7 +26,7 @@
     m       = merge
     p       = push
     pf      = push --force
-    pr      = !sh -c 'hub pull-request'
+    pr      = !sh -c 'hub pull-request -o'
     rb      = rebase
     rba     = rebase --abort
     rbc     = rebase --continue
