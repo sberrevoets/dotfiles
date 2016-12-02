@@ -46,7 +46,8 @@
 [core]
     excludesfile = ~/.gitignore
 [diff]
-    compactionHeuristic = true
+    indentHeuristic = true
+    submodule = diff
     tool = vimdiff
 [interactive]
     diffFilter = diff-highlight
