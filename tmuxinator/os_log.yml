@@ -7,4 +7,4 @@ windows:
       panes:
         - clear && ./os_log -u Lyft
         - clear && ./os_log -u LyftNetworking -c Error
-        - clear && ./os_log -c Verbose
+        - clear && ./os_log -u com.apple.UIKit
