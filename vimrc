@@ -1,33 +1,34 @@
-syntax on                           " Enable syntax highlighting
+syntax on                                 " Enable syntax highlighting
 
-set autoindent                      " Match line indent from previous line
-set autoread                        " Automatically update with changes
-set backspace=indent,eol,start      " Backspace over lines, indents, and insert start
-set breakindent                     " Indent wrapped lines
-set breakindentopt=shift:4          " How much to indent wrapped lines
-set clipboard=unnamed               " Use system clipboard
-set expandtab                       " Replace tabs with spaces
-set hlsearch                        " Highlight search terms
-set ignorecase                      " Use case insensitive search
-set incsearch                       " Show search terms as you type
-set noerrorbells                    " No beeping please
-set nojoinspaces                    " Don't add spaces when using J
-set nostartofline                   " Don't reset cursor to start of line when moving
-set number                          " Enable line numbers
-set numberwidth=3                   " Line gutter width
-set relativenumber                  " Show line numbers relative to current line
-set ruler                           " Show column
-set scrolloff=10                    " Scroll when nearing window border
-set shiftwidth=4                    " Indentation in spaces
-set showcmd                         " Show current command on command line
-set showmatch                       " Show matching parenthesis
-set showmode                        " Show current mode
-set smartcase                       " Use case sensitive search for non-lowercase searches
-set softtabstop=4                   " Number of columns per tab
-set textwidth=80                    " Number of columns before wrapping
-set undodir=~/dotfiles/vim/undodir  " Set directory for persistent undo files
-set undofile                        " Save undos after closing file
-set visualbell                      " No beeping please
+set autoindent                            " Match line indent from previous line
+set autoread                              " Automatically update with changes
+set backspace=indent,eol,start            " Backspace over lines, indents, and insert start
+set backupdir=~/dotfiles/vim/backupdir//  " Set directory for backup files
+set breakindent                           " Indent wrapped lines
+set breakindentopt=shift:4                " How much to indent wrapped lines
+set clipboard=unnamed                     " Use system clipboard
+set expandtab                             " Replace tabs with spaces
+set hlsearch                              " Highlight search terms
+set ignorecase                            " Use case insensitive search
+set incsearch                             " Show search terms as you type
+set noerrorbells                          " No beeping please
+set nojoinspaces                          " Don't add spaces when using J
+set nostartofline                         " Don't reset cursor to start of line when moving
+set number                                " Enable line numbers
+set numberwidth=3                         " Line gutter width
+set relativenumber                        " Show line numbers relative to current line
+set ruler                                 " Show column
+set scrolloff=10                          " Scroll when nearing window border
+set shiftwidth=4                          " Indentation in spaces
+set showcmd                               " Show current command on command line
+set showmatch                             " Show matching parenthesis
+set showmode                              " Show current mode
+set smartcase                             " Use case sensitive search for non-lowercase searches
+set softtabstop=4                         " Number of columns per tab
+set textwidth=80                          " Number of columns before wrapping
+set undodir=~/dotfiles/vim/undodir//      " Set directory for persistent undo files
+set undofile                              " Save undos after closing file
+set visualbell                            " No beeping please
 
 " Use space as leader
 let mapleader = "\<Space>"
