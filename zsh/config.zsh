@@ -35,11 +35,6 @@ setopt HIST_VERIFY
 # Move to end after completion
 setopt ALWAYS_TO_END
 
-# Create a directory and navigate to it
-mkcd () { mkdir "$@" && cd "$@"; }
-
-# List directory contents on cd
-
 ## History settings
 # Save x items to the given history file
 HISTSIZE=1000000000000000
@@ -67,4 +62,3 @@ setopt HIST_REDUCE_BLANKS
 # After !! previous command don't execute, allow editing
 setopt HIST_VERIFY
 
-cd() { builtin cd "$@" && l; }
