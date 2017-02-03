@@ -8,7 +8,7 @@ brew 'class-dump'
 brew 'cocoapods'
 brew 'coreutils'
 brew 'git'
-brew 'gnu-sed'
+brew 'gnu-sed' --with-default-names
 brew 'hub'
 brew 'lynx'
 brew 'openssh'
