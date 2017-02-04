@@ -1,3 +1,8 @@
+# More informative ls
+function l() {
+    ls -lFh --color
+}
+
 # Create a directory and navigate to it
 function mkcd () { 
     mkdir "$@" && cd "$@"; 
