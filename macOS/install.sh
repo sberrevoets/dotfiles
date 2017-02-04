@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-# Bootstrap OS X configuration
-
-# Copy Terminal settings
-rm ~/Library/Preferences/com.apple.Terminal.plist
-ln -s ~/dotfiles/macos/Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
+# Bootstrap macOS configuration
 
 if ! which brew &> /dev/null; then
   echo "Installing homebrew"
