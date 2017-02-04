@@ -3,9 +3,10 @@
 # Creates symlinks from the home directory to the specified files
 ######################
 
-dir=~/dotfiles
+dir=$DOTFILES
 files=(bashrc \
        bin \
+       gitattributes \
        gitconfig \
        gitignore \
        js \
@@ -20,4 +21,3 @@ cd $dir
 for file in $files; do
     ln -s $dir/$file ~/.$file
 done
-

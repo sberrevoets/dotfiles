@@ -45,11 +45,14 @@
 [rerere]
     enabled = true
 [core]
+    attributesfile = ~/.gitattributes
     excludesfile = ~/.gitignore
 [diff]
     indentHeuristic = true
     submodule = diff
     tool = vimdiff
+[diff "plist"]
+    textconv = plutil -convert xml1 -o -
 [interactive]
     diffFilter = diff-highlight
 [pager]
