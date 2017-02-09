@@ -18,6 +18,15 @@ function cdf() {
     cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
 
+# Colored man pages
+man() {
+    LESS_TERMCAP_md=$(tput bold; tput setaf 4)            \
+    LESS_TERMCAP_me=$(tput sgr0)                           \
+    LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 3) \
+    LESS_TERMCAP_ue=$(tput sgr0)                           \
+    command man "$@"
+}
+
 # Generate .gitignore based on parameters
 function gitignore() {
     curl -L -s https://www.gitignore.io/api/"$@" > .gitignore;
