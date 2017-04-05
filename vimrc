@@ -33,16 +33,6 @@ set visualbell                            " No beeping please
 " Use space as leader
 let mapleader = "\<Space>"
 
-" Force using h, j, k, l. We'll see how it goes...
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
-imap <Left> <Nop>
-imap <Right> <Nop>
-imap <Up> <Nop>
-imap <Down> <Nop>
-
 " Sane behavior please
 nnoremap Y y$
 
