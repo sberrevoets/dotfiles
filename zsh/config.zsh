@@ -21,6 +21,9 @@ zle -N down-line-or-beginning-search
 bindkey "\e[A" up-line-or-beginning-search
 bindkey "\e[B" down-line-or-beginning-search
 
+# Case insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 # Try to cd into directory if command doesn't exist
 setopt AUTO_CD
 
