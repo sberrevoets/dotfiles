@@ -8,6 +8,7 @@ set breakindent                           " Indent wrapped lines
 set breakindentopt=shift:4                " How much to indent wrapped lines
 set clipboard=unnamed                     " Use system clipboard
 set expandtab                             " Replace tabs with spaces
+set gdefault                              " Globally replace by default
 set hlsearch                              " Highlight search terms
 set ignorecase                            " Use case insensitive search
 set incsearch                             " Show search terms as you type
