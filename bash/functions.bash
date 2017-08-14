@@ -8,11 +8,6 @@ function mkcd () {
     mkdir "$@" && cd "$@"; 
 }
 
-# List directory contents on cd
-function cd() {
-    builtin cd "$@" && l; 
-}
-
 # Change working directory to the top-most Finder window location
 function cdf() {
     cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
