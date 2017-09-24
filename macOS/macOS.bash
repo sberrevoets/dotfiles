@@ -10,6 +10,9 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 alias o='open'
 alias oo='open .'
 
+# Open Xcode workspace/project easily
+alias x='open -a Xcode .'
+
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.Finder AppleShowAllFiles -bool TRUE; killall Finder"
 alias hide="defaults write com.apple.Finder AppleShowAllFiles FALSE; killall Finder"
