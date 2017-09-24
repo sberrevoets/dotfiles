@@ -77,6 +77,9 @@ defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
 # Show build reasons in Xcode build log
 defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
 
+# Disable "Print" shortcut. Oddly enough I never find myself wanting to print
+# source code.
+defaults write com.apple.dt.Xcode NSUserKeyEquivalents -dict-add "Print..." "nil"
 ### Tweetbot
 
 # No t.co
