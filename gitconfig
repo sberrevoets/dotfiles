@@ -24,7 +24,6 @@
     l       = pull
     lg      = log --graph
     m       = merge
-    ma      = checkout master
     o       = !sh -c 'hub browse'
     p       = push
     pf      = push --force
