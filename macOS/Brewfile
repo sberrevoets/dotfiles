@@ -8,6 +8,7 @@ brew 'cask'
 brew 'class-dump'
 brew 'cocoapods'
 brew 'coreutils'
+brew 'ctags'
 brew 'findutils' --with-default-names
 brew 'git'
 brew 'gnu-sed' --with-default-names

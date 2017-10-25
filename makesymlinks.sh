@@ -6,6 +6,7 @@
 dir=$DOTFILES
 files=(bashrc \
        bin \
+       ctags \
        gitattributes \
        gitconfig \
        gitignore \
