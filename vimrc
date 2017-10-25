@@ -64,6 +64,11 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " commentary
 map <Leader>/ <Plug>Commentary
 
+" incsearch improvements (g/ doesn't move cursor)
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
 " Clear search easily
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
@@ -85,6 +90,7 @@ ca w!! w !sudo tee "%"
 call plug#begin()
 Plug 'commentary.vim'
 Plug 'ctrlp.vim'
+Plug 'haya14busa/incsearch.vim'
 Plug 'keith/swift.vim'
 Plug 'keith/tmux.vim'
 Plug 'tpope/vim-surround'
