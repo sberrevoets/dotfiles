@@ -68,11 +68,15 @@ map <Leader>/ <Plug>Commentary
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
 " De-emphasize line numbers
-highlight LineNr ctermfg=238
+hi LineNr ctermfg=238
+
+" Search highlighting
+hi Search ctermbg=30
+hi IncSearch ctermbg=30
 
 " Highlight all columns after the text width
 execute "set colorcolumn=" . join(map(range(1, 259), '"+" . v:val'), ',')
-highlight ColorColumn guibg=#2d2d2d ctermbg=233
+hi ColorColumn guibg=#2d2d2d ctermbg=233
 
 " Use w!! for saving new files
 ca w!! w !sudo tee "%"
