@@ -32,6 +32,10 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Disable warning when emptying trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
+# Supercharge key repeating (more than can be set in UI)
+defaults write -g InitialKeyRepeat -int 10
+defaults write -g KeyRepeat -int 1
+
 # Unhide ~/Library
 chflags nohidden ~/Library
 
