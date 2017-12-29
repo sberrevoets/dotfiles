@@ -48,6 +48,7 @@
     attributesfile = ~/.gitattributes
     excludesfile = ~/.gitignore
 [diff]
+    colorMoved = dimmed_zebra
     indentHeuristic = true
     submodule = diff
     tool = vimdiff
