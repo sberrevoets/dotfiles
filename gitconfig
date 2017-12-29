@@ -9,7 +9,7 @@
     a       = add
     aa      = add --all
     ap      = add -p
-    b       = branch
+    b       = branch -vv
     bda     = !sh -c 'git branch --merged | command grep -vE \"^(\\*|\\s*master\\s*$)\" | command xargs -n 1 git branch -d'
     c       = commit -v
     ca      = commit -v --amend --no-edit
