@@ -67,4 +67,3 @@ setopt HIST_REDUCE_BLANKS
 
 # After !! previous command don't execute, allow editing
 setopt HIST_VERIFY
-
