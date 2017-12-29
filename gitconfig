@@ -48,6 +48,7 @@
     attributesfile = ~/.gitattributes
     excludesfile = ~/.gitignore
 [diff]
+    algorithm = patience
     colorMoved = dimmed_zebra
     indentHeuristic = true
     submodule = diff
