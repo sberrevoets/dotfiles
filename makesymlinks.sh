@@ -11,6 +11,8 @@ files=(bashrc \
        gitconfig \
        gitignore \
        js \
+       lldbhelpers \
+       lldbinit \
        tmux.conf \
        tmuxinator \
        urlview \
