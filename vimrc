@@ -54,6 +54,10 @@ nnoremap k gk
 nnoremap <CR> G
 vnoremap <CR> G
 
+" Conflict marker navigation
+nnoremap <silent> ]c /\v^(\<\|\=\|\>){7}([^=].+)?$<CR>
+nnoremap <silent> [c ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>
+
 " Ctrl P
 nnoremap <Leader>o :CtrlP<CR>
 
