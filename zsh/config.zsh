@@ -27,6 +27,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # Try to cd into directory if command doesn't exist
 setopt AUTO_CD
 
+# Automatically select first autocomplete item when ambiguous
+setopt menu_complete
+
 # Show directory contents when cd'ing
 chpwd_functions=($chpwd_functions l)
 
