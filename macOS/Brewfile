@@ -20,7 +20,7 @@ brew 'rbenv'
 brew 'reattach-to-user-namespace' --with-wrap-pbcopy-and-pbpaste
 brew 'rename'
 brew 'ruby-install'
-brew 'tag-ag'
+brew 'keith/formulae/tag'
 brew 'the_silver_searcher'
 brew 'tmux'
 brew 'vim'
