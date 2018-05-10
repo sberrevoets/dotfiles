@@ -37,6 +37,9 @@ let mapleader = "\<Space>"
 " Sane behavior please
 nnoremap Y y$
 
+" Allow pasting multiple times
+xnoremap p pgvy
+
 " Easy writing/quitting
 nnoremap W :write<CR>
 nnoremap Q :quit<CR>
