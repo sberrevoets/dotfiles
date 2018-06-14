@@ -94,7 +94,7 @@ hi ColorColumn guibg=#2d2d2d ctermbg=233
 ca w!! w !sudo tee "%"
 
 " Plugins
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 Plug 'commentary.vim'
 Plug 'ctrlp.vim'
 Plug 'haya14busa/incsearch.vim'

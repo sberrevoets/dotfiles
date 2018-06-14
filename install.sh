@@ -12,6 +12,7 @@ files=(bashrc \
        tmux.conf \
        tmuxinator \
        urlview \
+       vim \
        vimrc \
        zshrc)
 
