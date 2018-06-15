@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Change default shell to zsh
 chsh -s $(which zsh)
 
-sh makesymlinks.sh
+# Create necessary symlinks
+./makesymlinks.sh
