@@ -1,7 +1,4 @@
 #!/bin/bash
-######################
-# Creates symlinks from the home directory to the specified files
-######################
 
 dir=$DOTFILES
 files=(bashrc \
@@ -21,6 +18,6 @@ files=(bashrc \
        zshrc)
 
 cd $dir
-for file in $files; do
+for file in "${files[@]}"; do
     ln -s $dir/$file ~/.$file
 done
