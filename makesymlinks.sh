@@ -14,7 +14,6 @@ files=(bashrc \
        tmuxinator \
        urlview \
        vimrc \
-       xvimrc \
        zshrc)
 
 cd $dir
