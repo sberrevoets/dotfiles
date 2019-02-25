@@ -4,8 +4,8 @@ function l() {
 }
 
 # Create a directory and navigate to it
-function mkcd () { 
-    mkdir "$@" && cd "$@"; 
+function mkcd () {
+    mkdir "$@" && cd "$@";
 }
 
 # Change working directory to the top-most Finder window location
@@ -36,9 +36,4 @@ function json() {
         # JSON from pipe
         python -mjson.tool | pygmentize -l javascript;
     fi;
-}
-
-# Quick find
-function f() {
-    find . -name "$@"
 }
