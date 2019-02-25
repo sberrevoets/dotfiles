@@ -93,6 +93,9 @@ hi ColorColumn guibg=#2d2d2d ctermbg=233
 " Use w!! for saving new files
 ca w!! w !sudo tee "%"
 
+" Save file when the window/pane loses focus
+autocmd BufLeave,FocusLost * wall
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'commentary.vim'
@@ -101,6 +104,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'keith/swift.vim'
 Plug 'keith/tmux.vim'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-expand-region'
