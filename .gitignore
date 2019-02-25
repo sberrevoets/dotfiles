@@ -36,6 +36,7 @@ Session.vim
 .netrwhist
 *~
 vim/plugged
+vim/black
 
 # Secrets
 netrc

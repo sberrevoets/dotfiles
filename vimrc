@@ -98,6 +98,7 @@ autocmd BufLeave,FocusLost * wall
 
 " Plugins
 call plug#begin('~/.vim/plugged')
+Plug 'ambv/black'
 Plug 'commentary.vim'
 Plug 'ctrlp.vim'
 Plug 'haya14busa/incsearch.vim'

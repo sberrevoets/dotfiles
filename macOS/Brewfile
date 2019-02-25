@@ -4,6 +4,7 @@ tap 'sberrevoets/formulae'
 
 brew 'sberrevoets/formulae/urlview', args: ['HEAD']
 
+brew 'black'
 brew 'cask'
 brew 'class-dump'
 brew 'cocoapods'
