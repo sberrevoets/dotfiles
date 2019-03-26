@@ -34,6 +34,7 @@
     rbc     = rebase --continue
     rbm     = rebase master
     rbmi    = rebase master -i
+    rbs     = rebase --skip
     rh      = reset HEAD
     rhh     = reset HEAD --hard
     rhs     = reset HEAD --soft
