@@ -94,7 +94,7 @@ hi ColorColumn guibg=#2d2d2d ctermbg=233
 ca w!! w !sudo tee "%"
 
 " Save file when the window/pane loses focus
-autocmd BufLeave,FocusLost * wall
+autocmd BufLeave,FocusLost * silent! wall
 
 " Plugins
 call plug#begin('~/.vim/plugged')
