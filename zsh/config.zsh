@@ -24,8 +24,23 @@ bindkey "\e[B" down-line-or-beginning-search
 # Case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+# Show navigation menu when completing
+zstyle ':completion:*' menu select
+
+# Fuzzy match completion
+# http://grml.org/zsh/zsh-lovers.html
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
 # Try to cd into directory if command doesn't exist
 setopt AUTO_CD
+
+# Use directory stacking
+setopt AUTO_PUSHD
+
+# Remove duplicate directories when pushing
+setopt PUSHD_IGNORE_DUPS
 
 # Automatically select first autocomplete item when ambiguous
 setopt menu_complete
