@@ -5,8 +5,7 @@ alias ....='cd ../../..'
 alias -- -='cd -'
 
 alias g=git
-# https://www.quora.com/How-can-I-make-a-git-alias-that-executes-a-cd
-alias gr='cd $(git rev-parse --show-toplevel)'
+alias gr="cd $(git r)"
 alias v=vim
 
 alias df='cd ~/dotfiles'

@@ -29,6 +29,7 @@
     p       = push
     pf      = push --force
     pr      = !sh -c 'hub pull-request -o'
+    r       = root
     rb      = rebase
     rba     = rebase --abort
     rbc     = rebase --continue
@@ -38,6 +39,7 @@
     rh      = reset HEAD
     rhh     = reset HEAD --hard
     rhs     = reset HEAD --soft
+    root    = !sh -c 'git rev-parse --show-toplevel'
     s       = status
     sh      = show
     st      = stash
