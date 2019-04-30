@@ -53,9 +53,6 @@ unsetopt BEEP
 unsetopt HIST_BEEP
 unsetopt LIST_BEEP
 
-# Allow for editing of previous command when using !!
-setopt HIST_VERIFY
-
 # Move to end after completion
 setopt ALWAYS_TO_END
 
