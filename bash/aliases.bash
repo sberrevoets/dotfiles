@@ -5,7 +5,7 @@ alias ....='cd ../../..'
 alias -- -='cd -'
 
 alias g=git
-alias gr="cd $(git r)"
+alias gr='cd $(git r)'
 alias v=vim
 
 alias df='cd ~/dotfiles'
