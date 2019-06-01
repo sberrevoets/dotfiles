@@ -42,6 +42,10 @@ setopt AUTO_PUSHD
 # Remove duplicate directories when pushing
 setopt PUSHD_IGNORE_DUPS
 
+# Reverse +/- when navigation directory stack
+# http://zsh.sourceforge.net/Intro/intro_6.html
+setopt PUSHDMINUS
+
 # Automatically select first autocomplete item when ambiguous
 setopt menu_complete
 
