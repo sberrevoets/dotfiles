@@ -1,4 +1,7 @@
 command script import ~/.lldbhelpers/iblog.py
+command script import ~/.lldbhelpers/load_swift.py
+
+load_swift ~/.lldbhelpers/uikit.swift
 
 # Allow `po`ing a memory address
 # https://twitter.com/kastiglione/status/1009166829757984768
