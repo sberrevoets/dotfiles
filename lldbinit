@@ -3,6 +3,9 @@ command script import ~/.lldbhelpers/load_swift.py
 
 command alias reload command source ~/.lldbinit
 
+command alias swift settings set target.language swift
+command alias objc settings set target.language objc
+
 load_swift ~/.lldbhelpers/uikit.swift
 
 # Allow `po`ing a memory address
