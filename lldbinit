@@ -1,6 +1,8 @@
 command script import ~/.lldbhelpers/iblog.py
 command script import ~/.lldbhelpers/load_swift.py
 
+command alias reload command source ~/.lldbinit
+
 load_swift ~/.lldbhelpers/uikit.swift
 
 # Allow `po`ing a memory address
