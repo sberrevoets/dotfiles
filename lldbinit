@@ -10,4 +10,5 @@ load_swift ~/.lldbhelpers/uikit.swift
 
 # Allow `po`ing a memory address
 # https://twitter.com/kastiglione/status/1009166829757984768
-command regex po 's/(0x[[:xdigit:]]+)/expr -l objc -O -- %1/' 's/(.*)/expr -O -- %1/'
+command regex po 's/^(0x[[:xdigit:]]+)$/expr -l objc -O -- %1/' 's/(.*)/expr -O -- %1/'
+
