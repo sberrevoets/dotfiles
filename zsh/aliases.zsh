@@ -1,6 +1,7 @@
 # Suffix aliases
 alias -s swift=vim
 alias -s yml=vim
+alias -s md=vim
 
 # dirs shortcuts
 alias d='dirs -v | head -10'
