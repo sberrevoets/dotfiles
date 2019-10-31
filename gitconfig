@@ -57,6 +57,7 @@
     indentHeuristic = true
     submodule = diff
     tool = vimdiff
+    noprefix = true
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
 [interactive]
