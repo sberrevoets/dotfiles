@@ -96,6 +96,11 @@ ca w!! w !sudo tee "%"
 " Save file when the window/pane loses focus
 autocmd BufLeave,FocusLost * silent! wall
 
+let g:line_length = 79
+if filereadable('.black')
+    autocmd BufWritePre *.py execute ':silent Black'
+endif
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'ambv/black'
