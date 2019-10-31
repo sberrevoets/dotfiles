@@ -84,3 +84,5 @@
   insteadOf = git@github.com:
 [log]
   date = local
+[fetch]
+  prune = true
