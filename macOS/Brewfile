@@ -10,6 +10,7 @@ brew 'class-dump'
 brew 'cocoapods'
 brew 'coreutils'
 brew 'ctags'
+brew 'dduan/formulae/tre'
 brew 'fd'
 brew 'findutils' --with-default-names
 brew 'git'

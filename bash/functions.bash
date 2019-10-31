@@ -37,3 +37,9 @@ function json() {
         python -mjson.tool | pygmentize -l javascript;
     fi;
 }
+
+# Make `tre` more convenient
+function tree() {
+    command tre "$@" -e
+    source "/tmp/tre_aliases_$USER" 2>/dev/null;
+}
