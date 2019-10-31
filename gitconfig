@@ -69,20 +69,20 @@
 [status]
     showUntrackedFiles = all
 [mergetool "vim"]
-  cmd = vim -c "normal\\ gg]c" -f \"$MERGED\"
-  prompt = false
+    cmd = vim -c "normal\\ gg]c" -f \"$MERGED\"
+    prompt = false
 [mergetool]
-  keepBackup = false
-  trustExitCode = true
+    keepBackup = false
+    trustExitCode = true
 [merge]
-  tool = vim
-  log = true
-  stat = true
+    tool = vim
+    log = true
+    stat = true
 [pull]
-  rebase = true
+    rebase = true
 [url "https://github.com/"]
-  insteadOf = git@github.com:
+    insteadOf = git@github.com:
 [log]
-  date = local
+    date = local
 [fetch]
-  prune = true
+    prune = true
