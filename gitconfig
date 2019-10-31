@@ -82,3 +82,5 @@
   rebase = true
 [url "https://github.com/"]
   insteadOf = git@github.com:
+[log]
+  date = local
