@@ -1,6 +1,6 @@
 # Created by https://www.gitignore.io
 
-### OSX ###
+### macOS ###
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -27,6 +27,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Custom
+macOS/.dock
 
 ### Vim ###
 [._]*.s[a-w][a-z]

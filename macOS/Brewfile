@@ -11,6 +11,7 @@ brew 'cocoapods'
 brew 'coreutils'
 brew 'ctags'
 brew 'dduan/formulae/tre'
+brew 'dockutil'
 brew 'fd'
 brew 'findutils' --with-default-names
 brew 'git'
