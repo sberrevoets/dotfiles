@@ -29,8 +29,7 @@ die() {
 install() {
     for file in "${files[@]}"; do
         target=$(install_location $file)
-        ln -s $PWD/$file $target
-        echo "Installed $target"
+        ln -s $PWD/$file $target && echo "Installed $target"
     done
 }
 
