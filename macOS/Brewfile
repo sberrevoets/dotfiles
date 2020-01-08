@@ -1,6 +1,7 @@
 tap 'aykamko/tag-ag'
 tap 'homebrew/bundle'
 tap 'sberrevoets/formulae'
+tap 'lautis/refined-github-safari'
 
 brew 'sberrevoets/formulae/urlview', args: ['HEAD']
 
@@ -23,6 +24,7 @@ brew 'openssh'
 brew 'openssl'
 brew 'rbenv'
 brew 'reattach-to-user-namespace' --with-wrap-pbcopy-and-pbpaste
+brew 'refined-github-safari'
 brew 'rename'
 brew 'ruby-install'
 brew 'set-simulator-location'
