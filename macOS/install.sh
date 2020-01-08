@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Bootstrap macOS configuration
 
 if ! which brew &> /dev/null; then
   echo "Installing homebrew"
@@ -12,6 +11,9 @@ brew bundle --file=Caskfile
 
 # Create personalized system and app defaults
 source defaults.sh
+
+# Build the Dock
+sh dock.sh
 
 # Update Xcode theme
 cp "Monokai Inconsolata.dvtcolortheme" ~/Library/Developer/Xcode/UserData/FontAndColorThemes/

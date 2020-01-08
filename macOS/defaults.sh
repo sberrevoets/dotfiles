@@ -10,9 +10,6 @@ defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.twoFingerFromRightEdgeSwipeGesture -int 0
 
-# Set dock icon size
-defaults write com.apple.dock tilesize -int 50
-
 # Show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent -bool true
 
