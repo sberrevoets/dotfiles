@@ -7,6 +7,7 @@ files=(bashrc \
        gitconfig \
        gitignore \
        js \
+       ledgerrc \
        lldbhelpers \
        lldbinit \
        tmux.conf \
