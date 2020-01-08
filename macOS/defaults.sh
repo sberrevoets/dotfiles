@@ -3,8 +3,8 @@
 # Enable dark UI
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
-# Set sidebar icons to small
-defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
+# Set sidebar icons to medium
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 # Disable swipe action for notification center
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
