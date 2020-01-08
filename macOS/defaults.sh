@@ -45,6 +45,13 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Enable ⌘ + Q for Finder
 defaults write com.apple.finder QuitMenuItem -bool true
 
+# Use scroll gesture with the Ctrl (^) modifier key to zoom
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+
+# Follow the keyboard focus while zoomed in
+defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+
 ### iTunes
 
 # Disable device update alerts
