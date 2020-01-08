@@ -17,3 +17,6 @@ sh dock.sh
 
 # Update Xcode theme
 cp "Monokai Inconsolata.dvtcolortheme" ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
+
+echo "Import Terminal.terminal manually through Preferences > Gear > Import."
+read -p "Press return to continue"
