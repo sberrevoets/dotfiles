@@ -12,3 +12,6 @@ brew bundle --file=Caskfile
 
 # Create personalized system and app defaults
 source defaults.sh
+
+# Update Xcode theme
+cp "Monokai Inconsolata.dvtcolortheme" ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
