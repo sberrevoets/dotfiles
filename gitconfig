@@ -5,6 +5,7 @@
     default = current
 [rebase]
     autosquash = true
+    autoStash = true
 [alias]
     a       = add
     aa      = add --all
