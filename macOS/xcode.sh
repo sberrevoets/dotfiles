@@ -61,5 +61,5 @@ defaults write com.apple.dt.Xcode IDESuppressStopExecutionWarning -bool true
 defaults write com.apple.dt.Xcode IDESourceControlSupressDiscardAllChangesConfirmation -bool true
 
 # Set custom theme
-defaults write com.apple.dt.Xcode XCFontAndColorCurrentDarkTheme = "Monokai Inconsolata.xccolortheme";
-defaults write com.apple.dt.Xcode XCFontAndColorCurrentTheme = "Monokai Inconsolata.xccolortheme";
+defaults write com.apple.dt.Xcode XCFontAndColorCurrentDarkTheme -string "Monokai Inconsolata.xccolortheme"
+defaults write com.apple.dt.Xcode XCFontAndColorCurrentTheme -string "Monokai Inconsolata.xccolortheme"
