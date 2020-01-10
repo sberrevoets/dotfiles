@@ -62,36 +62,10 @@ defaults write com.apple.iTunes disableCheckForDeviceUpdates -bool YES
 # Use ⌘ + Enter to send an email
 defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\U21a9"
 
-### Xcode
-
-# Trim trailing whitespace
-defaults write com.apple.dt.Xcode DVTTextEditorTrimTrailingWhitespace -bool true
-
-# Trim whitespace-only lines
-defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool true
-
-# Show line numbers
-defaults write com.apple.dt.Xcode DVTTextEditorShowLineNumbers -bool true
-
-# Enable internal debug menu
-defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
-
-# Open quickly opens in the focused pane
-defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_Click -string "FocusedEditor"
-
-# Show build time in toolbar
-defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
-
-# Show build reasons in Xcode build log
-defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
-
-# Show remaining files to index
-defaults write com.apple.dt.Xcode IDEIndexerActivityShowNumericProgress -bool true
-
-# Disable "Print" shortcut. Oddly enough I never find myself wanting to print
-# source code.
-defaults write com.apple.dt.Xcode NSUserKeyEquivalents -dict-add "Print..." "nil"
 ### Tweetbot
 
 # No t.co
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
+
+### Xcode
+sh xcode.sh
