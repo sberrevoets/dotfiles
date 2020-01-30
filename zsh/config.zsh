@@ -13,6 +13,10 @@ autoload -U compinit && compinit
 # Insert quotes around typed URLs
 autoload -U url-quote-magic
 
+# Use Ctrl + V to open $EDITOR with current command line buffer
+zle -N edit-command-line
+bindkey -M vicmd "^V" edit-command-line
+
 # Complete commands starting with currently typed text
 autoload up-line-or-beginning-search
 autoload down-line-or-beginning-search
