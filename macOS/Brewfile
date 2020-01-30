@@ -15,6 +15,7 @@ brew 'dduan/formulae/tre'
 brew 'dockutil'
 brew 'fd'
 brew 'findutils' --with-default-names
+brew 'fzy'
 brew 'git'
 brew 'gnu-sed' --with-default-names
 brew 'hub'
