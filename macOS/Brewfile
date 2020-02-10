@@ -1,7 +1,8 @@
 tap 'aykamko/tag-ag'
 tap 'homebrew/bundle'
-tap 'sberrevoets/formulae'
 tap 'lautis/refined-github-safari'
+tap 'lyft/private-formulae git@github.com:lyft/homebrew-private-formulae.git
+tap 'sberrevoets/formulae'
 
 brew 'sberrevoets/formulae/urlview', args: ['HEAD']
 
@@ -17,6 +18,7 @@ brew 'fd'
 brew 'findutils' --with-default-names
 brew 'fzy'
 brew 'git'
+brew 'gitstack' --HEAD
 brew 'gnu-sed' --with-default-names
 brew 'hub'
 brew 'keith/formulae/tag'
