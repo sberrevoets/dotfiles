@@ -33,6 +33,9 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 defaults write -g InitialKeyRepeat -int 10
 defaults write -g KeyRepeat -int 1
 
+# Disable auto-capitalization
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
 # Unhide ~/Library
 chflags nohidden ~/Library
 
