@@ -15,3 +15,5 @@ command regex po 's/^(0x[[:xdigit:]]+)$/expr -l objc -O -- %1/' 's/(.*)/expr -O 
 # Enable `let $view: UIView = 0xabcdef00` syntax
 # https://twitter.com/kastiglione/status/1009466527970541568
 command regex let 's/(\$\w+): (\w+) = (0x[[:xdigit:]]+)/expr -- let %1 = unsafeBitCast(%3, to: %2.self)/' 's/(.*)/expr -- let %1/'
+# Added automatically by xcbazel
+command source ~/.lldbinit-xcbazel
