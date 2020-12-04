@@ -1,14 +1,4 @@
-### OS X
-
-# Enable dark UI
-defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
-
-# Set sidebar icons to medium
-defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
-
-# Disable swipe action for notification center
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.twoFingerFromRightEdgeSwipeGesture -int 0
+## macOS
 
 # Show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent -bool true
@@ -28,13 +18,6 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Disable warning when emptying trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
-
-# Supercharge key repeating (more than can be set in UI)
-defaults write -g InitialKeyRepeat -int 10
-defaults write -g KeyRepeat -int 1
-
-# Disable auto-capitalization
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
 # Unhide ~/Library
 chflags nohidden ~/Library
