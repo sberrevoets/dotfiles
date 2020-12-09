@@ -34,3 +34,7 @@ Temporary Items
 
 # Dock settings
 .dock
+
+# Temp files
+*.log
+*.tmp
