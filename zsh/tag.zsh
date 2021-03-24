@@ -1,4 +1,12 @@
 if (( $+commands[tag] )); then
-  tag() { command tag "$@" && source "/tmp/tag_aliases_$USER" 2>/dev/null }
-  alias ag="tag ag"
+  tag() {
+    trap 'source /tmp/tag_aliases 2>/dev/null' SIGINT
+    command tag "$@" && source /tmp/tag_aliases 2>/dev/null
+    trap - SIGINT
+  }
+  alias s="tag ag"
+  alias fd="tag fd"
+  alias find="tag find"
+else
+  alias s=rg
 fi
