@@ -9,7 +9,7 @@ find_files() {
 }
 
 trim_quotes() {
-    echo "$1" | sed -e 's/"$//' -e 's/^"//'
+    echo "$1" | sed -e 's/"$//' -e 's/^"//' | awk '{$1=$1};1'
 }
 
 fuzzy-git-branch-widget() {
