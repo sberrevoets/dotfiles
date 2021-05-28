@@ -15,6 +15,7 @@ files=(bashrc \
        urlview \
        vim \
        vimrc \
+       zshenv \
        zshrc)
 
 install_location() {
