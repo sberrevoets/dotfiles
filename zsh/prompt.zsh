@@ -38,8 +38,8 @@ function prompt_git_status() {
     local message=""
     local message_color="%{$fg_bold[green]%}"
 
-    local staged=$(git status --porcelain 2>/dev/null | grep -e "^M " -e "^A ")
-    local unstaged=$(git status --porcelain 2>/dev/null | grep -e "^ M" -e "^??")
+    local staged=$(git --no-optional-locks status --porcelain 2>/dev/null | grep -e "^M " -e "^A ")
+    local unstaged=$(git --no-optional-locks status --porcelain 2>/dev/null | grep -e "^ M" -e "^??")
 
     if [[ -n ${staged} ]]; then
         message_color="%{$fg_bold[red]%}"
@@ -53,18 +53,6 @@ function prompt_git_status() {
     fi
 
     echo -n "${message}"
-}
-
-function set_prompt_legacy() {
-    if [ -n "$(git status --porcelain 2> /dev/null)" ]; then
-        local git_dirty=" %{$fg[red]%}✗"
-    fi
-
-    if [ -n "$(git rev-parse --git-dir 2> /dev/null)" ]; then
-        local git_info=" %{$fg_bold[blue]%}($(current_branch_or_commit)$git_dirty%{$fg_bold[blue]%})"
-    fi
-
-    PROMPT="%{$fg_bold[magenta]%}[%*]%{$fg_bold[green]%} $(get_pwd)$git_info%{$reset_color%} "
 }
 
 function return_status() {
