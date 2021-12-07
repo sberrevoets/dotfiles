@@ -19,5 +19,9 @@ sh dock.sh
 mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 cp "Monokai Inconsolata.dvtcolortheme" ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 
-echo "Import Terminal.terminal manually through Preferences > Gear > Import."
+
+# Set up Terminal theme
+# Make sure this user owns the plist, without it the theme reverts back every time
+sudo chown "$USER":staff ~/Library/Preferences/com.apple.Terminal.plist
+echo "Import Terminal theme from Preferences > Profiles and set as default"
 read -p "Press return to continue"
