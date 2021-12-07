@@ -68,7 +68,8 @@ setopt ALWAYS_TO_END
 # Save x items to the given history file
 HISTSIZE=1000000000000000
 SAVEHIST=$HISTSIZE
-HISTFILE=$HOME/.zsh_history
+# Custom zsh history file to avoid Apple messing with the default one
+HISTFILE=$HOME/.zsh_history_scott
 
 # Append history to the zsh_history file
 setopt APPEND_HISTORY
