@@ -26,7 +26,7 @@ set showmatch                             " Show matching parenthesis
 set showmode                              " Show current mode
 set smartcase                             " Use case sensitive search for non-lowercase searches
 set softtabstop=4                         " Number of columns per tab
-set textwidth=80                          " Number of columns before wrapping
+set textwidth=0                           " Number of columns before wrapping
 set undodir=~/dotfiles/vim/undodir//      " Set directory for persistent undo files
 set undofile                              " Save undos after closing file
 set visualbell                            " No beeping please
