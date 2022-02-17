@@ -1,3 +1,4 @@
+colo peachpuff " peachpuff is vim's default but not neovim's
 syntax on                                 " Enable syntax highlighting
 
 set autoindent                            " Match line indent from previous line
@@ -12,6 +13,7 @@ set gdefault                              " Globally replace by default
 set hlsearch                              " Highlight search terms
 set ignorecase                            " Use case insensitive search
 set incsearch                             " Show search terms as you type
+set laststatus=0                          " Hide the file name bar
 set noerrorbells                          " No beeping please
 set nojoinspaces                          " Don't add spaces when using J
 set nostartofline                         " Don't reset cursor to start of line when moving
@@ -107,9 +109,16 @@ Plug 'ambv/black'
 Plug 'commentary.vim'
 Plug 'ctrlp.vim'
 Plug 'haya14busa/incsearch.vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main'}
+Plug 'hrsh7th/cmp-buffer', { 'branch': 'main'}
+Plug 'hrsh7th/cmp-path', { 'branch': 'main'}
+Plug 'hrsh7th/cmp-cmdline', { 'branch': 'main'}
+Plug 'hrsh7th/nvim-cmp', { 'branch': 'main'}
 Plug 'keith/swift.vim'
 Plug 'keith/tmux.vim'
 Plug 'ledger/vim-ledger'
+Plug 'neovim/nvim-lspconfig'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-fugitive'

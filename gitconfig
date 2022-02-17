@@ -68,14 +68,14 @@
     diff = diff-highlight | less
 [status]
     showUntrackedFiles = all
-[mergetool "vim"]
-    cmd = vim -c "normal\\ gg]c" -f \"$MERGED\"
+[mergetool "nvim"]
+    cmd = nvim -c "normal\\ gg]c" -f \"$MERGED\"
     prompt = false
 [mergetool]
     keepBackup = false
     trustExitCode = true
 [merge]
-    tool = vim
+    tool = nvim
     log = true
     stat = true
 [pull]

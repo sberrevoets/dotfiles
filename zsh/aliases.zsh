@@ -1,7 +1,9 @@
 # Suffix aliases
-alias -s swift=vim
-alias -s yml=vim
-alias -s md=vim
+alias -s swift=$EDITOR
+alias -s yml=$EDITOR
+alias -s md=$EDITOR
+
+alias vimdiff='nvim -d'
 
 # dirs shortcuts
 alias d='dirs -v | head -10'

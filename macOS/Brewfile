@@ -23,6 +23,7 @@ brew 'gnu-sed' --with-default-names
 brew 'hub'
 brew 'keith/formulae/tag'
 brew 'lynx'
+brew 'nvim'
 brew 'openssh'
 brew 'openssl'
 brew 'rbenv'
