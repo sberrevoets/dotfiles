@@ -1,7 +1,7 @@
 tap 'aykamko/tag-ag'
 tap 'homebrew/bundle'
 tap 'lautis/refined-github-safari'
-tap 'lyft/private-formulae git@github.com:lyft/homebrew-private-formulae.git
+tap 'lyft/private-formulae git@github.com:lyft/homebrew-private-formulae.git'
 tap 'sberrevoets/formulae'
 
 brew 'sberrevoets/formulae/urlview', args: ['HEAD']
@@ -15,11 +15,11 @@ brew 'ctags'
 brew 'dduan/formulae/tre'
 brew 'dockutil'
 brew 'fd'
-brew 'findutils' --with-default-names
+brew 'findutils'
 brew 'fzy'
 brew 'git'
-brew 'gitstack' --HEAD
-brew 'gnu-sed' --with-default-names
+brew 'gitstack', args: ['HEAD']
+brew 'gnu-sed'
 brew 'hub'
 brew 'keith/formulae/tag'
 brew 'lynx'
@@ -27,7 +27,7 @@ brew 'nvim'
 brew 'openssh'
 brew 'openssl'
 brew 'rbenv'
-brew 'reattach-to-user-namespace' --with-wrap-pbcopy-and-pbpaste
+brew 'reattach-to-user-namespace'
 brew 'refined-github-safari'
 brew 'rename'
 brew 'ruby-install'
