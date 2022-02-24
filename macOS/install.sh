@@ -17,10 +17,14 @@ brew bundle --file=Caskfile
 $DOTFILES/macOS/mas.sh
 
 # Create personalized system and app defaults
-source defaults.sh
-
-# Build the Dock
-sh dock.sh
+$DOTFILES/macOS/macOS.sh
+$DOTFILES/macOS/general.sh
+$DOTFILES/macOS/keyboard.sh
+$DOTFILES/macOS/defaults.sh
+$DOTFILES/macOS/sound.sh
+$DOTFILES/macOS/trackpad.sh
+$DOTFILES/macOS/xcode.sh
+$DOTFILES/macOS/dock.sh
 
 # Update Xcode theme
 mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/

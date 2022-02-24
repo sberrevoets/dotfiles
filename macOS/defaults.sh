@@ -52,6 +52,3 @@ defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\U21a9"
 
 # No t.co
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
-
-### Xcode
-sh xcode.sh
