@@ -9,7 +9,6 @@ brew 'sberrevoets/formulae/urlview', args: ['HEAD']
 brew 'black'
 brew 'cask'
 brew 'class-dump'
-brew 'cocoapods'
 brew 'coreutils'
 brew 'ctags'
 brew 'dduan/formulae/tre'

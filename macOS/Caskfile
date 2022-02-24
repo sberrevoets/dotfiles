@@ -1,8 +1,4 @@
 cask '1password'
-cask 'aerial'
-cask 'dash'
-cask 'licecap'
 cask 'qlmarkdown'
 cask 'the-unarchiver'
 cask 'slack'
-cask 'refined-github-safari'
