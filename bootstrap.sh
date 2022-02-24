@@ -8,6 +8,3 @@ chsh -s $(which zsh)
 
 # Install vim plugins and configurations
 ./vim/install.sh
-
-# Initialize ruby
-./langs/ruby.bash
