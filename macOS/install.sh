@@ -13,6 +13,9 @@ brew update
 brew bundle --file=Brewfile
 brew bundle --file=Caskfile
 
+# Install Mac App Store apps
+$DOTFILES/macOS/mas.sh
+
 # Create personalized system and app defaults
 source defaults.sh
 

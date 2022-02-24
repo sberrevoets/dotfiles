@@ -1,0 +1,6 @@
+mas install 1438243180 # Dark Reader for Safari
+mas install 1480933944 # Vimari
+mas install 1544743900 # Hush Nag Blocker
+mas install 1365531024 # 1Blocker: Ad Blocker & Privacy
+mas install 1523251484 # DrString
+mas install 1519867270 # Refined GitHub
