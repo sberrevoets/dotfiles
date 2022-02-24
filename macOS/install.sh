@@ -10,8 +10,8 @@ if ! which brew &> /dev/null; then
 fi
 
 brew update
-brew bundle --file=Brewfile
-brew bundle --file=Caskfile
+brew bundle --file=$DOTFILES/macOS/Brewfile
+brew bundle --file=$DOTFILES/macOS/Caskfile
 
 # Install Mac App Store apps
 $DOTFILES/macOS/mas.sh
@@ -28,7 +28,7 @@ $DOTFILES/macOS/dock.sh
 
 # Update Xcode theme
 mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
-cp "Monokai Inconsolata.dvtcolortheme" ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
+cp "$DOTFILES/macOS/Monokai Inconsolata.dvtcolortheme" ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 
 
 # Set up Terminal theme
