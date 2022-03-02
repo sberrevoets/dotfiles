@@ -13,7 +13,7 @@ brew 'dduan/formulae/tre'
 brew 'dockutil'
 brew 'fd'
 brew 'findutils'
-brew 'fzy'
+brew 'keith/formulae/fzy'
 brew 'git'
 brew 'gitstack', args: ['HEAD']
 brew 'gnu-sed'
