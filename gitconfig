@@ -1,6 +1,8 @@
 [user]
     name = Scott Berrevoets
     email = s.berrevoets@me.com
+[init]
+    defaultBranch = main
 [push]
     default = current
 [rebase]
@@ -11,12 +13,12 @@
     aa      = add --all
     ap      = add -p
     b       = branch -vv
-    bda     = !sh -c 'git branch | grep -v "master" | xargs git branch -D'
+    bda     = !sh -c 'git branch | grep -v "$(git main-branch)" | xargs git branch -D'
     c       = commit -v
     ca      = commit -v --amend --no-edit
     caa     = !sh -c 'git add --all && git ca'
     cb      = checkout -b
-    cm      = checkout master
+    cm      = !sh -c 'git checkout $(git main-branch)'
     co      = checkout
     cp      = cherry-pick
     d       = diff
@@ -34,8 +36,8 @@
     rb      = rebase
     rba     = rebase --abort
     rbc     = rebase --continue
-    rbm     = rebase master
-    rbmi    = rebase master -i
+    rbm     = !sh -c 'git rebase $(git main-branch)'
+    rbmi    = !sh -c 'git rebase $(git main-branch) -i'
     rbs     = rebase --skip
     rh      = reset HEAD
     rhh     = reset HEAD --hard
