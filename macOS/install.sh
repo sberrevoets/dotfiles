@@ -17,7 +17,6 @@ brew bundle --file=$DOTFILES/macOS/Caskfile
 $DOTFILES/macOS/mas.sh
 
 # Create personalized system and app defaults
-$DOTFILES/macOS/macOS.sh
 $DOTFILES/macOS/general.sh
 $DOTFILES/macOS/keyboard.sh
 $DOTFILES/macOS/defaults.sh
