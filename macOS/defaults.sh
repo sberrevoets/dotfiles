@@ -48,6 +48,17 @@ defaults write com.apple.iTunes disableCheckForDeviceUpdates -bool YES
 # Use ⌘ + Enter to send an email
 defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\U21a9"
 
+### Calendar/iCal
+
+# Don't add invites to Notification Center
+defaults write com.apple.iCal InvitationNotificationsDisabled -int 1
+
+# Show week numbers
+defaults write com.apple.iCal "Show Week Numbers" -int 1
+
+# Hide weekend days from week view
+defaults write com.apple.iCal "n days of week" -int 5
+
 ### Tweetbot
 
 # No t.co
