@@ -26,7 +26,8 @@
     email   = config user.email
     f       = commit --fixup=HEAD
     l       = pull
-    lg      = log --graph
+    lg      = log --graph --pretty=format:'%Cred%h%Creset  %Cgreen%<(15)%cr%Creset %C(bold blue)%<(17)%an%C(reset) %s%Creset%C(yellow)%d%Creset' -25
+    llg     = log --graph
     m       = merge
     o       = !sh -c 'hub browse'
     p       = push
