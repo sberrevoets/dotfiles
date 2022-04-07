@@ -14,3 +14,6 @@ fi
 
 # Install vim plugins and configurations
 ./vim/install.sh
+
+# Install node
+./nvm/install.sh
