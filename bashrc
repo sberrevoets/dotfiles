@@ -1,6 +1,6 @@
 export DOTFILES="$(dirname $(readlink $HOME/.bashrc))"
 
-configs=($DOTFILES/*/*.bash $DOTFILES/*/*.sh)
+configs=($DOTFILES/*/*.bash)
 for file in ${configs[@]}
 do
   source $file
