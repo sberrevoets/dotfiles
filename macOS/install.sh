@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-touch "$HOME/.netrc"
+cp ../netrc "$HOME/.netrc"
 chmod 0600 "$HOME/.netrc"
-read -p "Created .netrc; add credentials now or further installation will fail"
+read -p "Created .netrc; add GitHub PAT now or further installation will fail"
 
 if ! which brew &> /dev/null; then
   echo "Installing homebrew"

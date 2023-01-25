@@ -39,7 +39,3 @@ Session.vim
 *~
 vim/plugged
 vim/black
-
-# Secrets
-netrc
-js/com.js
