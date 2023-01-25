@@ -19,6 +19,10 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Disable warning when emptying trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
+# Use home folder as default in Finder
+defaults write com.apple.finder NewWindowTarget -string "PfHm";
+defaults write com.apple.finder NewWindowTargetPath -string "file:///Users/$USER"
+
 # Unhide ~/Library
 chflags nohidden ~/Library
 

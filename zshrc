@@ -7,7 +7,7 @@ else
   export BREW_PREFIX=/usr/local
 fi
 
-configs=($DOTFILES/*/*.bash $DOTFILES/*/*.zsh $DOTFILES/*/*.sh))
+configs=($DOTFILES/*/*.bash $DOTFILES/*/*.zsh)
 for file in ${configs:#*/completions.zsh}
 do
     source $file
