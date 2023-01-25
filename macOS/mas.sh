@@ -4,3 +4,4 @@ mas install 1544743900 # Hush Nag Blocker
 mas install 1365531024 # 1Blocker: Ad Blocker & Privacy
 mas install 1523251484 # DrString
 mas install 1519867270 # Refined GitHub
+mas install 1458969831 # JSON Peep for Safari
