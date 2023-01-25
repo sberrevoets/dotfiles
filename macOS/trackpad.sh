@@ -3,6 +3,9 @@
 #### Point & Click
 
 # Look up & data detectors
+defaults write NSGlobalDomain com.apple.trackpad.forceClick -int 1
+
+# Secondary click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -int 1
 
 # Tap to click
@@ -24,6 +27,7 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRotate
 # [x] Swipe between full-screen apps
 ## Swipe left or right with four fingers
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 2
 
 # [ ] Notification Center
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
@@ -31,7 +35,7 @@ defaults -currentHost write NSGlobalDomain com.apple.trackpad.twoFingerFromRight
 
 # [x] Mission Control
 ## Swipe up with four fingers
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
 
 # [x] Show Desktop
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture -int 2
