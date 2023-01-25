@@ -53,6 +53,8 @@
     wtc     = !sh -c 'git commit --allow-empty -m \""$(curl -s https://whatthecommit.com/index.txt)"\"'
 [rerere]
     enabled = true
+[advice]
+    skippedCherryPicks = false
 [core]
     attributesfile = ~/.gitattributes
     excludesfile = ~/.gitignore
