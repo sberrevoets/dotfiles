@@ -1,4 +1,3 @@
-colo peachpuff " peachpuff is vim's default but not neovim's
 syntax on                                 " Enable syntax highlighting
 
 set autoindent                            " Match line indent from previous line
@@ -129,4 +128,7 @@ Plug 'vim-expand-region'
 Plug 'wellle/targets.vim'
 Plug 'SirVer/ultisnips'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
+
+colo catppuccin-mocha
