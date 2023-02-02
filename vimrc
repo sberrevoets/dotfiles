@@ -105,8 +105,7 @@ endif
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'ambv/black'
-Plug 'commentary.vim'
-Plug 'ctrlp.vim'
+Plug 'tpope/vim-commentary'
 Plug 'haya14busa/incsearch.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main'}
@@ -124,7 +123,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-expand-region'
+Plug 'terryma/vim-expand-region'
 Plug 'wellle/targets.vim'
 Plug 'SirVer/ultisnips'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
