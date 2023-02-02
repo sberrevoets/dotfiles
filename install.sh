@@ -28,7 +28,11 @@ die() {
 install() {
     for file in "${files[@]}"; do
         target=$(install_location $file)
-        ln -s $PWD/$file $target && echo "Installed $target"
+        if [ ! -f "$target" -a ! -d "$target" ]; then
+            ln -s $PWD/$file $target && echo "Installed $target"
+        else
+            echo "$target exists; skipping"
+        fi
     done
 }
 
