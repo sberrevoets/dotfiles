@@ -6,12 +6,10 @@ files=(bashrc \
        gitattributes \
        gitconfig \
        gitignore \
-       js \
        ledgerrc \
        lldbhelpers \
        lldbinit \
        tmux.conf \
-       tmuxinator \
        urlview \
        vim \
        vimrc \
