@@ -92,3 +92,5 @@
     date = local
 [fetch]
     prune = true
+[hub]
+    protocol = https
