@@ -104,7 +104,7 @@ endif
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'ambv/black'
+Plug 'psf/black'
 Plug 'tpope/vim-commentary'
 Plug 'haya14busa/incsearch.vim'
 Plug 'neovim/nvim-lspconfig'
@@ -123,11 +123,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'terryma/vim-expand-region'
+Plug 'vim-scripts/vim-expand-region'
 Plug 'wellle/targets.vim'
 Plug 'SirVer/ultisnips'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'github/copilot.vim'
 call plug#end()
 
 colo catppuccin-mocha
