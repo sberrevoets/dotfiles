@@ -57,6 +57,9 @@ nnoremap k gk
 " Join without space
 nnoremap J Jx
 
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
+
 " Easy go-to-line navigation (<line number> + return)
 nnoremap <CR> G
 vnoremap <CR> G
