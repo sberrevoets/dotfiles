@@ -54,6 +54,9 @@ vnoremap L $
 nnoremap j gj
 nnoremap k gk
 
+" Join without space
+nnoremap J Jx
+
 " Easy go-to-line navigation (<line number> + return)
 nnoremap <CR> G
 vnoremap <CR> G
