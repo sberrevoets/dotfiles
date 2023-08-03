@@ -75,11 +75,6 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " commentary
 map <Leader>/ <Plug>Commentary
 
-" incsearch improvements (g/ doesn't move cursor)
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
 " Clear search easily
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
@@ -109,7 +104,6 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'psf/black'
 Plug 'tpope/vim-commentary'
-Plug 'haya14busa/incsearch.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main'}
 Plug 'hrsh7th/cmp-buffer', { 'branch': 'main'}
