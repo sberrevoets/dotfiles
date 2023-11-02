@@ -7,6 +7,7 @@ set backupdir=~/dotfiles/vim/backupdir//  " Set directory for backup files
 set breakindent                           " Indent wrapped lines
 set breakindentopt=shift:4                " How much to indent wrapped lines
 set clipboard=unnamed                     " Use system clipboard
+set cursorline                            " Highlight current line
 set expandtab                             " Replace tabs with spaces
 set gdefault                              " Globally replace by default
 set hlsearch                              " Highlight search terms
