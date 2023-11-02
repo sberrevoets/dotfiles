@@ -1,5 +1,7 @@
 # Suffix aliases
 alias -s swift=$EDITOR
+alias -s ts=$EDITOR
+alias -s tsx=$EDITOR
 alias -s yml=$EDITOR
 alias -s md=$EDITOR
 
