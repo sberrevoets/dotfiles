@@ -49,7 +49,7 @@
     st      = stash
     stp     = stash pop
     su      = submodule update --init --recursive
-    us      = "!f() { git restore --staged \"${1:-.}\"; }; f"
+    us      = restore --staged
     wtc     = !sh -c 'git commit --allow-empty -m \""$(curl -s https://whatthecommit.com/index.txt)"\"'
 [rerere]
     enabled = true
