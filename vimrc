@@ -3,7 +3,7 @@ syntax on                                 " Enable syntax highlighting
 set autoindent                            " Match line indent from previous line
 set autoread                              " Automatically update with changes
 set backspace=indent,eol,start            " Backspace over lines, indents, and insert start
-set backupdir=~/dotfiles/vim/backupdir//  " Set directory for backup files
+set backupdir=$DOTFILES/vim/backupdir//   " Set directory for backup files
 set breakindent                           " Indent wrapped lines
 set breakindentopt=shift:4                " How much to indent wrapped lines
 set clipboard=unnamed                     " Use system clipboard
@@ -29,7 +29,7 @@ set showmode                              " Show current mode
 set smartcase                             " Use case sensitive search for non-lowercase searches
 set softtabstop=4                         " Number of columns per tab
 set textwidth=0                           " Number of columns before wrapping
-set undodir=~/dotfiles/vim/undodir//      " Set directory for persistent undo files
+set undodir=$DOTFILES/vim/undodir//       " Set directory for persistent undo files
 set undofile                              " Save undos after closing file
 set visualbell                            " No beeping please
 
