@@ -116,7 +116,6 @@ Plug 'hrsh7th/cmp-cmdline', { 'branch': 'main'}
 Plug 'hrsh7th/nvim-cmp', { 'branch': 'main'}
 Plug 'keith/swift.vim'
 Plug 'keith/tmux.vim'
-Plug 'ledger/vim-ledger'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -130,6 +129,8 @@ Plug 'SirVer/ultisnips'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'github/copilot.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 colo catppuccin-mocha
