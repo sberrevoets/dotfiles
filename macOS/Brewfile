@@ -6,6 +6,7 @@ tap 'hpedrorodrigues/homebrew-tools'
 
 brew 'sberrevoets/formulae/urlview', args: ['HEAD']
 
+brew 'atuin'
 brew 'black'
 brew 'cask'
 brew 'colordiff'
