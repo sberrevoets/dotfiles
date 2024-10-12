@@ -63,7 +63,5 @@ defaults write com.apple.iCal "Show Week Numbers" -int 1
 # Hide weekend days from week view
 defaults write com.apple.iCal "n days of week" -int 5
 
-### Tweetbot
-
-# No t.co
-defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
+# Menu
+defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm:ss\""
