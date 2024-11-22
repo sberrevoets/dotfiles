@@ -36,9 +36,6 @@ set visualbell                            " No beeping please
 " Use space as leader
 let mapleader = "\<Space>"
 
-" Reload configuration with leader+r
-nnoremap <Leader>r :source ~/.vimrc<CR>
-
 " Sane behavior please
 nnoremap Y y$
 
