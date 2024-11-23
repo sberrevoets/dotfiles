@@ -1,3 +1,5 @@
+filetype plugin indent on                 " Also required in neovim for lua ftplugin detection
+
 syntax on                                 " Enable syntax highlighting
 
 set autoindent                            " Match line indent from previous line
