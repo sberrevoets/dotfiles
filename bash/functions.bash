@@ -19,7 +19,7 @@ man() {
     LESS_TERMCAP_me=$(tput sgr0)                           \
     LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 3) \
     LESS_TERMCAP_ue=$(tput sgr0)                           \
-    command man "$@"
+    command man "$@" || "$@" -h;
 }
 
 # Generate .gitignore based on parameters
