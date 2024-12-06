@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+
+import requests
+import argparse
+
+_TERMINAL_RESET = "\033[0m"
+_TERMINAL_BOLD = "\033[1m"
+_TERMINAL_DIM = "\033[2m"
+_TERMINAL_RED = "\033[91m"
+_TERMINAL_GREEN = "\033[92m"
+_TERMINAL_BLUE = "\033[94m"
+
+
+def fetch_word_definition(word):
+    """Fetch word definition from api.dictionary.dev."""
+    url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
+    response = requests.get(url)
+
+    # Handle API errors
+    if response.status_code != 200:
+        return None
+
+    return response.json()
+
+
+def format_definition_output(word_data):
+    """Format and output the word definition in a clean terminal format."""
+    if not word_data:
+        return f"{_TERMINAL_RED}error: word not found{_TERMINAL_RESET}"
+
+    word = word_data[0]["word"]
+    meanings = word_data[0].get("meanings", [])
+
+    output = f"{_TERMINAL_GREEN}{_TERMINAL_BOLD}{word}{_TERMINAL_RESET}\n"
+
+    # Format meanings
+    for part_of_speech in meanings:
+        pos = part_of_speech["partOfSpeech"]
+        output += f"\n{_TERMINAL_BLUE}{pos}{_TERMINAL_RESET}"
+
+        synonyms = ", ".join(part_of_speech["synonyms"])
+        output += f"  {_TERMINAL_DIM}({synonyms}){_TERMINAL_RESET}" if synonyms else ""
+        output += "\n"
+
+        for i, definition in enumerate(part_of_speech["definitions"], 1):
+            definition_text = definition.get("definition", "N/A")
+            example = definition.get("example", "")
+            output += f"  {i}. {definition_text}"
+            if example:
+                output += f" (e.g., {example})"
+            output += "\n"
+
+    return output
+
+
+def get_word_definition(word):
+    """Get word definition from API and display formatted output."""
+    word_data = fetch_word_definition(word)
+    return format_definition_output(word_data)
+
+
+def main():
+    """Main function to parse command line argument and fetch word definition."""
+    parser = argparse.ArgumentParser(
+        description="Fetch word definitions from API dictionary.dev."
+    )
+    parser.add_argument("word", help="Word to look up")
+    args = parser.parse_args()
+
+    word = args.word
+    print(get_word_definition(word))
+
+
+if __name__ == "__main__":
+    main()
