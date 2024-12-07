@@ -39,7 +39,14 @@ local function apply_ansi_highlighting(buf, line_num, text)
     if next:find("^" .. pattern) then
       start_pos, end_pos, match = next:find("(" .. pattern .. ")")
       cursor = end_pos + 1
-      vim.api.nvim_buf_add_highlight(buf, -1, find_ansi_pattern(match) or "Normal", line_num, pos_in_stripped, -1)
+      vim.api.nvim_buf_add_highlight(
+        buf,
+        -1,
+        find_ansi_pattern(match) or "Normal",
+        line_num,
+        pos_in_stripped,
+        -1
+      )
     else
       start_pos = next:find(pattern)
       if start_pos then
@@ -91,10 +98,10 @@ end
 
 -- Look up the definition of the word under the cursor
 local function lookup()
-  local word = vim.fn.expand "<cword>"
+  local word = vim.fn.expand("<cword>")
 
   local file = assert(io.popen("dict " .. word, "r"))
-  local definition = assert(file:read "*a")
+  local definition = assert(file:read("*a"))
   file:close()
   show_popup(create_buf(definition))
 end

@@ -39,7 +39,11 @@ def format_definition_output(word_data):
         output += f"\n{_TERMINAL_BLUE}{pos}{_TERMINAL_RESET}"
 
         synonyms = ", ".join(part_of_speech["synonyms"])
-        output += f"  {_TERMINAL_DIM}({synonyms}){_TERMINAL_RESET}" if synonyms else ""
+        output += (
+            f"  {_TERMINAL_DIM}({synonyms}){_TERMINAL_RESET}"
+            if synonyms
+            else ""
+        )
         output += "\n"
 
         for i, definition in enumerate(part_of_speech["definitions"], 1):

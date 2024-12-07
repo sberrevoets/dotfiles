@@ -118,14 +118,8 @@ ca w!! w !sudo tee "%"
 " Save file when the window/pane loses focus
 autocmd BufLeave,FocusLost * silent! wall
 
-let g:line_length = 79
-if filereadable('.black')
-    autocmd BufWritePre *.py execute ':silent Black'
-endif
-
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'psf/black'
 Plug 'tpope/vim-commentary'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main'}
@@ -150,6 +144,7 @@ Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'github/copilot.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'vim-autoformat/vim-autoformat'
 call plug#end()
 
 if !has('nvim')
