@@ -11,8 +11,7 @@ _TERMINAL_GREEN = "\033[92m"
 _TERMINAL_BLUE = "\033[94m"
 
 
-def fetch_word_definition(word):
-    """Fetch word definition from api.dictionary.dev."""
+def _fetch_word_definition(word):
     url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
     response = requests.get(url)
 
@@ -23,8 +22,7 @@ def fetch_word_definition(word):
     return response.json()
 
 
-def format_definition_output(word_data):
-    """Format and output the word definition in a clean terminal format."""
+def _format_definition_output(word_data):
     if not word_data:
         return f"{_TERMINAL_RED}error: word not found{_TERMINAL_RESET}"
 
@@ -33,7 +31,6 @@ def format_definition_output(word_data):
 
     output = f"{_TERMINAL_GREEN}{_TERMINAL_BOLD}{word}{_TERMINAL_RESET}\n"
 
-    # Format meanings
     for part_of_speech in meanings:
         pos = part_of_speech["partOfSpeech"]
         output += f"\n{_TERMINAL_BLUE}{pos}{_TERMINAL_RESET}"
@@ -57,14 +54,12 @@ def format_definition_output(word_data):
     return output
 
 
-def get_word_definition(word):
-    """Get word definition from API and display formatted output."""
-    word_data = fetch_word_definition(word)
-    return format_definition_output(word_data)
+def _get_word_definition(word):
+    word_data = _fetch_word_definition(word)
+    return _format_definition_output(word_data)
 
 
 def main():
-    """Main function to parse command line argument and fetch word definition."""
     parser = argparse.ArgumentParser(
         description="Fetch word definitions from API dictionary.dev."
     )
@@ -72,7 +67,7 @@ def main():
     args = parser.parse_args()
 
     word = args.word
-    print(get_word_definition(word))
+    print(_get_word_definition(word))
 
 
 if __name__ == "__main__":
