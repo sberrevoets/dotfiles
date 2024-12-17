@@ -6,12 +6,3 @@ l() {
         ls -lFhG # Default macOS
     fi
 }
-
-# Gemfile-aware `pod install`
-pi() {
-  if [ -e "Gemfile" ]; then
-    bundle exec pod install || bundle exec pod install --repo-update
-  else
-    pod install || pod install --repo-update
-  fi
-}
