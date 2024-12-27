@@ -3,10 +3,7 @@
 echo "Installing vim plugins"
 vim +PlugInstall +qall
 
-echo "Creating backup dir"
-mkdir backupdir -p 2>/dev/null
-
 mkdir -p ~/.config/nvim/
-ln -s $PWD/vim/nvim.conf ~/.config/nvim/init.vim
+ln -s $PWD/vim/init.lua ~/.config/nvim/init.lua
 
 python3 -m pip install --user --upgrade pynvim
