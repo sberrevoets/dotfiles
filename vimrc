@@ -80,8 +80,12 @@ nnoremap k gk
 " Join without space
 nnoremap J Jx
 
+" Easier quickfix jumps
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
+
+" Delete file and buffer
+nnoremap <Leader>d :call delete(expand('%'))<CR>
 
 " Easy go-to-line navigation (<line number> + return)
 nnoremap <CR> G
