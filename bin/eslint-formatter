@@ -1,0 +1,14 @@
+#!/bin/bash
+
+input=`mktemp`
+cat > "$input"
+
+output=$(eslint --stdin --stdin-filename "$1" --fix-dry-run --format json < "$input")
+
+fixed=$(echo "$output" | jq -r '.[0].output // empty')
+
+if [ -n "$fixed" ]; then
+    echo "$fixed"
+else
+    cat "$input"
+fi

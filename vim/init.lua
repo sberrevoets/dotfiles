@@ -126,7 +126,7 @@ cmp.setup.cmdline(":", {
 
 -- Setup lspconfig.
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { "pyright", "ts_ls", "eslint", "sourcekit", "bashls" }
+local servers = { "pyright", "tsserver", "eslint", "sourcekit", "bashls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup({
     capabilities = capabilities,
