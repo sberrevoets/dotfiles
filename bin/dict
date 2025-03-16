@@ -5,6 +5,7 @@ import argparse
 
 _TERMINAL_RESET = "\033[0m"
 _TERMINAL_BOLD = "\033[1m"
+_TERMINAL_UNBOLD = "\033[22m"
 _TERMINAL_DIM = "\033[2m"
 _TERMINAL_RED = "\033[91m"
 _TERMINAL_GREEN = "\033[92m"
@@ -36,9 +37,15 @@ def _format_definition_output(word_data):
         output += f"\n{_TERMINAL_BLUE}{pos}{_TERMINAL_RESET}"
 
         synonyms = ", ".join(part_of_speech["synonyms"])
+        antonyms = ", ".join(part_of_speech["antonyms"])
         output += (
             f"  {_TERMINAL_DIM}({synonyms}){_TERMINAL_RESET}"
             if synonyms
+            else ""
+        )
+        output += (
+            f"  {_TERMINAL_DIM}({_TERMINAL_BOLD}not:{_TERMINAL_UNBOLD}{_TERMINAL_DIM} {antonyms}){_TERMINAL_RESET}"
+            if antonyms
             else ""
         )
         output += "\n"
