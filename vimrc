@@ -95,6 +95,10 @@ vnoremap <CR> G
 nnoremap <silent> ]c /\v^(\<\|\=\|\>){7}([^=].+)?$<CR>
 nnoremap <silent> [c ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>
 
+" Easy find and replace
+vnoremap <Leader>re "hy:%s/<C-r>h/<C-r>h/gc<Left><Left><Left>
+nnoremap <Leader>re :%s/<C-r><C-w>/<C-r><C-w>/gc<Left><Left><Left>
+
 " vim-expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
