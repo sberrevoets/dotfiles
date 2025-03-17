@@ -2,7 +2,6 @@ filetype plugin indent on                 " Also required in neovim for lua ftpl
 
 syntax on                                 " Enable syntax highlighting
 
-
 set autoindent                            " Match line indent from previous line
 set autoread                              " Automatically update with changes
 set backspace=indent,eol,start            " Backspace over lines, indents, and insert start
@@ -146,8 +145,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/vim-expand-region'
 Plug 'wellle/targets.vim'
-Plug 'SirVer/ultisnips'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'github/copilot.vim'
 Plug 'nvim-lua/plenary.nvim'
@@ -156,5 +153,5 @@ Plug 'vim-autoformat/vim-autoformat'
 call plug#end()
 
 if !has('nvim')
-    colo catppuccin-mocha
+  colo catppuccin-mocha
 endif
