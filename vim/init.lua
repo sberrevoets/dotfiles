@@ -9,7 +9,8 @@ vim.cmd.colorscheme("catppuccin-mocha")
 
 -- Map leader + rl to reload config
 vim.keymap.set("n", "<leader>rl", function()
-  vim.cmd("source " .. vim.fn.expand("%:p"))
+  local config_file = vim.fn.stdpath("config") .. "/init.lua"
+  vim.cmd("luafile " .. config_file)
 end, { desc = "Reload config" })
 
 local nvim_lsp = require("lspconfig")
