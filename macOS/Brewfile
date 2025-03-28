@@ -1,6 +1,5 @@
 tap 'aykamko/tag-ag'
 tap 'homebrew/bundle'
-tap 'lyft/homebrew-private-formulae'
 tap 'sberrevoets/formulae'
 tap 'hpedrorodrigues/homebrew-tools'
 
