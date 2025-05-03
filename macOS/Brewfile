@@ -47,3 +47,8 @@ cask 'slack'
 cask 'ghostty'
 
 cask 'font-sf-mono-nerd-font-ligaturized'
+
+brew 'xcode-build-server'
+brew 'xcbeautify'
+brew 'ruby'
+brew 'pipx'

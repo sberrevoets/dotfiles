@@ -157,6 +157,13 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
+
+" Xcodebuild dependencies
+Plug 'wojciech-kulik/xcodebuild.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'nvim-neotest/nvim-nio'
 call plug#end()
 
 if !has('nvim')

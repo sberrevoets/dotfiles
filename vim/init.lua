@@ -25,6 +25,12 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" 
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 
 vim.keymap.set("n", "<leader>0", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
+vim.keymap.set("n", "<leader>b", "<cmd>XcodebuildBuild<CR>", { desc = "Build Project" })
+vim.keymap.set("n", "<leader>r", "<cmd>XcodebuildBuildRun<cr>", { desc = "Build & Run Project" })
+vim.keymap.set("n", "<leader>1", "<cmd>XcodebuildTestExplorerToggle<cr>", { desc = "Toggle test explorer" })
+vim.keymap.set("n", "<leader>Y", function()
+  require("dapui").toggle()
+end, { desc = "Toggle Console" })
 
 local on_attach = function(client, bufnr)
   if client.server_capabilities.inlayHintProvider then
@@ -34,12 +40,12 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
-  local function buf_set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
-  end
+  -- local function buf_set_option(...)
+  --   vim.api.nvim_buf_set_option(bufnr, ...)
+  -- end
 
   -- Enable completion triggered by <c-x><c-o>
-  buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+  -- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
   local opts = { noremap = true, silent = true }
 
@@ -166,6 +172,27 @@ require("nvim-tree").setup({
   update_focused_file = { enable = true },
 })
 
+require("xcodebuild").setup({
+  -- put some options here or leave it empty to use default settings
+  code_coverage = {
+    enabled = true,
+  },
+  logs = {
+    logs_formatter = nil,
+  },
+})
+
+vim.api.nvim_create_autocmd({"VimEnter", "BufReadPost"}, {
+  callback = function()
+    local is_git_repo = vim.fn.systemlist("git rev-parse --is-inside-work-tree")[1] == "true"
+    local is_git_commit_file = vim.fn.expand("%:t") == "COMMIT_EDITMSG"
+
+    if not is_git_commit_file and is_git_repo then
+      require("nvim-tree.api").tree.toggle({ focus = false })
+    end
+  end,
+})
+
 -- Make :bd and :q behave as usual when tree is visible
 vim.api.nvim_create_autocmd({ "BufEnter", "QuitPre" }, {
   nested = false,
@@ -202,4 +229,85 @@ vim.api.nvim_create_autocmd({ "BufEnter", "QuitPre" }, {
       end, 10)
     end
   end,
+})
+
+local dap = require("dap")
+dap.adapters.lldb = {
+  type = "executable",
+  command = "lldb-vscode",
+  name = "lldb",
+}
+
+dap.configurations.swift = {
+  {
+    type = "lldb",
+    request = "launch",
+    name = "Launch",
+    program = function()
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    cwd = "${workspaceFolder}",
+    args = {},
+    env = { "OS_ACTIVITY_DT_MODE=enable" },
+  },
+}
+
+require("dapui").setup({
+  controls = {
+    element = "repl",
+    enabled = true,
+    icons = {
+      disconnect = "",
+      pause = "",
+      play = "",
+      run_last = "",
+      step_back = "",
+      step_into = "",
+      step_out = "",
+      step_over = "",
+      terminate = "",
+    },
+  },
+  element_mappings = {},
+  expand_lines = true,
+  floating = {
+    border = "single",
+    mappings = {
+      close = { "q", "<Esc>" },
+    },
+  },
+  force_buffers = true,
+  icons = {
+    collapsed = "",
+    current_frame = "",
+    expanded = "",
+  },
+  layouts = {
+    {
+      elements = {
+        {
+          id = "console",
+          size = 0.7,
+        },
+        {
+          id = "repl",
+          size = 0.3,
+        },
+      },
+      position = "bottom",
+      size = 10,
+    },
+  },
+  mappings = {
+    edit = "e",
+    expand = { "<CR>", "<2-LeftMouse>" },
+    open = "o",
+    remove = "d",
+    repl = "r",
+    toggle = "t",
+  },
+  render = {
+    indent = 1,
+    max_value_lines = 100,
+  },
 })
