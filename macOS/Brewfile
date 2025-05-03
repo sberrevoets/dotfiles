@@ -39,3 +39,11 @@ brew 'stylua'
 brew 'tmux'
 brew 'vim'
 brew 'zsh'
+
+brew 'xcode-build-server'
+brew 'xcbeautify'
+brew 'ruby'
+brew 'pipx'
+
+brew tap epk/epk
+brew 'font-sf-mono-nerd-font'
