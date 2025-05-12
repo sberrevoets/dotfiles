@@ -1,0 +1,8 @@
+command = /bin/zsh -i -c 'tmux a -t main || tmux new-session -s main'
+theme = catppuccin-mocha
+
+font-size = 18
+font-family = SF Mono
+font-thicken = true
+
+confirm-close-surface = false
