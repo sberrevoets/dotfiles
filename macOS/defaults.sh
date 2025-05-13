@@ -38,6 +38,10 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Enable ⌘ + Q for Finder
 defaults write com.apple.finder QuitMenuItem -bool true
 
+# For com.apple.universalaccess to be able to be written to, enable Full Disk Access
+# in Settings > Privacy > Full Disk Access.
+# TODO: see if this can be set automatically?
+
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
