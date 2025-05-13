@@ -16,7 +16,7 @@ brew 'dockutil'
 brew 'fd'
 brew 'findutils'
 brew 'git'
-brew 'gitstack', args: ['HEAD']
+brew 'git-pile'
 brew 'gnu-sed'
 brew 'hub'
 brew 'jq'
