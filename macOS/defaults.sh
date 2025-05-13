@@ -2,6 +2,7 @@
 
 # Show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent -bool true
+defaults write com.apple.menuextra.clock ShowSeconds -bool true
 
 # Show status bar and path bar in Finder
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -62,6 +63,3 @@ defaults write com.apple.iCal "Show Week Numbers" -int 1
 
 # Hide weekend days from week view
 defaults write com.apple.iCal "n days of week" -int 5
-
-# Menu
-defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm:ss\""
