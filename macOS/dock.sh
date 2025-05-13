@@ -28,7 +28,7 @@ defaults write com.apple.dock magnification -bool false
 defaults write com.apple.dock largesize -int 60
 
 # Position on screen: Bottom
-defaults write com.apple.dock orientation -string 'bottom'
+defaults write com.apple.dock orientation -string 'right'
 
 # Minimize windows using: Genie effect
 defaults write com.apple.dock mineffect -string 'genie'
