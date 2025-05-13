@@ -4,6 +4,8 @@
 defaults write com.apple.menuextra.battery ShowPercent -bool true
 defaults write com.apple.menuextra.clock ShowSeconds -bool true
 
+# Increase tracking speed on trackpad
+defaults write "Apple Global Domain" com.apple.trackpad.scaling -int 2
 # Show status bar and path bar in Finder
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowPathbar -bool true
