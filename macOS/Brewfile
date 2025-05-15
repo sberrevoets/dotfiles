@@ -3,6 +3,10 @@ tap 'homebrew/bundle'
 tap 'sberrevoets/formulae'
 tap 'hpedrorodrigues/homebrew-tools'
 
+# TODO: simplify this file
+# Remove unused brews
+# Combine brews and casks into 1
+
 brew 'sberrevoets/formulae/urlview', args: ['HEAD']
 
 brew 'atuin'

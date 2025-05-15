@@ -6,6 +6,25 @@ defaults write com.apple.menuextra.clock ShowSeconds -bool true
 
 # Increase tracking speed on trackpad
 defaults write "Apple Global Domain" com.apple.trackpad.scaling -int 2
+
+# Tap to click
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+
+# TODO: figure out if there is a way to make these work
+# The defaults are correct but the functionality doesn't work
+
+# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -int 1
+#
+# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+#
+# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
+#
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -int 1
+#
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+#
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
+
 # Show status bar and path bar in Finder
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowPathbar -bool true

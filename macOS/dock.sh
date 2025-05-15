@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# TODO: prompt dock type (personal/work)
+
 if [[ -f ".dock" && $1 != '--force' ]];
 then
     echo "Dock already created; use --force to override"
