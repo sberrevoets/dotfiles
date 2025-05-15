@@ -6,3 +6,4 @@ font-family = SF Mono
 font-thicken = true
 
 confirm-close-surface = false
+fullscreen = true
