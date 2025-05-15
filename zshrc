@@ -10,5 +10,5 @@ fi
 configs=($DOTFILES/*/*.bash $DOTFILES/*/*.zsh)
 for file in ${configs:#*/completions.zsh}
 do
-    source $file
+    source "$file"
 done
