@@ -1,22 +1,28 @@
 #!/bin/sh
 
-# TODO: prompt dock type (personal/work)
-
-if [[ -f ".dock" && $1 != '--force' ]];
+read -p "Personal or work (skip)? (p/w/s): " answer
+if [[ $answer == "p" ]];
 then
-    echo "Dock already created; use --force to override"
-    exit 1
+    dockutil --no-restart --remove all
+    dockutil --no-restart --add "/Applications/Safari.app"
+    dockutil --no-restart --add "/Applications/Xcode.app"
+    dockutil --no-restart --add "/System/Applications/Mail.app"
+    dockutil --no-restart --add "/System/Applications/Messages.app"
+    dockutil --no-restart --add "/System/Applications/Calendar.app"
+    dockutil --no-restart --add "/Applications/Slack.app"
+    dockutil --no-restart --add "/Applications/Ghostty.app"
+    dockutil --no-restart --add "~/Downloads" --view fan
+elif [[ $answer == "w" ]];
+then
+    dockutil --no-restart --remove all
+    dockutil --no-restart --add "/Applications/Google Chrome.app"
+    dockutil --no-restart --add "/Applications/Xcode.app"
+    dockutil --no-restart --add "/System/Applications/Mail.app"
+    dockutil --no-restart --add "/System/Applications/Calendar.app"
+    dockutil --no-restart --add "/Applications/Slack.app"
+    dockutil --no-restart --add "/Applications/Ghostty.app"
+    dockutil --no-restart --add "~/Downloads" --view fan
 fi
-
-dockutil --no-restart --remove all
-dockutil --no-restart --add "/Applications/Safari.app"
-dockutil --no-restart --add "/Applications/Xcode.app"
-dockutil --no-restart --add "/System/Applications/Mail.app"
-dockutil --no-restart --add "/System/Applications/Messages.app"
-dockutil --no-restart --add "/System/Applications/Calendar.app"
-dockutil --no-restart --add "/Applications/Slack.app"
-dockutil --no-restart --add "/System/Applications/Utilities/Terminal.app"
-dockutil --no-restart --add "~/Downloads" --view fan
 
 ## System Preferences
 
@@ -65,6 +71,3 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.3
 
 killall Dock
-
-touch .dock
-echo "Updated Dock"
