@@ -16,3 +16,11 @@ for branch in "${main_branches[@]}"; do
     exit 0
   fi
 done
+
+# Check if local has any of the main branches
+for branch in "${main_branches[@]}"; do
+  if git show-branch "$branch" > /dev/null 2>&1; then
+    echo "$branch"
+    exit 0
+  fi
+done

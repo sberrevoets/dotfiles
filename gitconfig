@@ -15,7 +15,7 @@
     aa      = add --all
     ap      = add -p
     b       = branch -vv
-    bda     = !sh -c 'git branch | grep -v "$(git main-branch)" | xargs git branch -D'
+    bda     = !sh -c 'git branch | grep -vw "$(git main-branch)" | xargs git branch -D'
     c       = commit -v
     ca      = commit -v --amend --no-edit
     caa     = !sh -c 'git add --all && git ca'
@@ -96,3 +96,9 @@
     prune = true
 [hub]
     protocol = https
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
