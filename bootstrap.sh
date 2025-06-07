@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# $DOTFILES might not be set yet as we're in the middle of the installation process.
+if [ -z "$DOTFILES" ]; then
+    export DOTFILES="$(dirname $(readlink -f $0))"
+fi
+
 # Change default shell to zsh
 chsh -s $(which zsh)
 
