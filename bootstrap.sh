@@ -6,6 +6,9 @@ if [ -z "$DOTFILES" ]; then
 fi
 
 # Change default shell to zsh
+# This will set the shell to the system-wide zsh binary
+# It's set again later in case a newer version of zsh was installed
+echo "Changing default shell to $(which zsh)"
 chsh -s $(which zsh)
 
 # Create base installation
@@ -19,6 +22,10 @@ ln -s $DOTFILES/ghostty  ~/.config/ghostty/config
 if [ "$(uname)" == "Darwin" ]; then
     echo "macOS (Darwin) detected; sourcing macOS preferences"
     ./macOS/install.sh
+
+    # Change default shell to zsh again, in case a newer version was installed
+    echo "Changing default shell to $(which zsh)"
+    chsh -s $(which zsh)
 fi
 
 # Install vim plugins and configurations
