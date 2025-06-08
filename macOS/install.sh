@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
 if [ ! -f "$HOME/.netrc" ]; then
-    cp "$DOTFILES/netrc" "$HOME/.netrc"
-    chmod 0600 "$HOME/.netrc"
-    read -p "Created .netrc; add GitHub PAT now or further installation will fail"
+    echo "Enter GitHub Personal Access Token (PAT) to enable dotfiles installation:"
+    read -r github_pat
+
+    echo "machine github.com" >> "$HOME/.netrc"
+    echo "    login sberrevoets" >> "$HOME/.netrc"
+    echo "    password $github_pat" >> "$HOME/.netrc"
+    chmod 600 "$HOME/.netrc"
 fi
 
 if ! which brew &> /dev/null; then
