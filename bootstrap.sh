@@ -5,9 +5,9 @@ if [ -z "$DOTFILES" ]; then
     export DOTFILES="$(dirname $(readlink -f $0))"
 fi
 
-# BREW_PATH might not be set yet in this part of the installation process
-if [ -z "$BREW_PATH" ]; then
-    export BREW_PATH="/opt/homebrew"
+# BREW_PREFIX might not be set yet in this part of the installation process
+if [ -z "$BREW_PREFIX" ]; then
+    export BREW_PREFIX="/opt/homebrew"
 fi
 
 # Change default shell to zsh
