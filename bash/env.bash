@@ -1,6 +1,6 @@
 # PATH:
 #  - $HOME/.bin        (personalized)
-#  - $BREW_PREFIX/bin  (Homebrew Apple Silicon)
+#  - /opt/homebrew/bin  (Homebrew Apple Silicon)
 #  - /bin
 #  - /usr/sbin
 #  - /sbin
@@ -8,6 +8,6 @@
 #  - /usr/bin          (system executables)
 
 # TODO: Look into moving zshenv
-export PATH="$HOME/.bin:$BREW_PREFIX/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin"
+export PATH="$HOME/.bin:/opt/homebrew/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin"
 export EDITOR="$(which nvim)"
 export CDPATH=".:$HOME/Developer"

@@ -5,11 +5,6 @@ if [ -z "$DOTFILES" ]; then
     export DOTFILES="$(dirname $(readlink -f $0))"
 fi
 
-# BREW_PREFIX might not be set yet in this part of the installation process
-if [ -z "$BREW_PREFIX" ]; then
-    export BREW_PREFIX="/opt/homebrew"
-fi
-
 # Change default shell to zsh
 # This will set the shell to the system-wide zsh binary
 # It's set again later in case a newer version of zsh was installed
