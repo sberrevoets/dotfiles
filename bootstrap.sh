@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Check if zsh is available, exit with an error message if not
+# TODO: make this nicer and more compatible when zsh is not installed
+if ! command -v zsh &> /dev/null; then
+    echo "zsh is required but not installed"
+    exit 1
+fi
+
 # $DOTFILES might not be set yet as we're in the middle of the installation process
 if [ -z "$DOTFILES" ]; then
     export DOTFILES="$(dirname $(readlink -f $0))"
