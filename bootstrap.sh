@@ -67,4 +67,4 @@ fi
 ./vim/install.sh
 
 # Install node
-./nvm/install.sh
+./nvm/install.sh install
