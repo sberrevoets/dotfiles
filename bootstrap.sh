@@ -57,8 +57,7 @@ ln -s $DOTFILES/ghostty  ~/.config/ghostty/config
 
 # Install macOS preferences
 if [ "$(uname)" = "Darwin" ]; then
-    echo "macOS (Darwin) detected; sourcing macOS preferences"
-    ./macOS/install.sh
+    ./macOS/install.sh install
 
     # Set zsh shell to brew-installed zsh
     set_zsh_shell
