@@ -33,7 +33,3 @@ $DOTFILES/macOS/sound.sh
 $DOTFILES/macOS/trackpad.sh
 $DOTFILES/macOS/xcode.sh
 $DOTFILES/macOS/dock.sh
-
-# Update Xcode theme
-mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
-cp "$DOTFILES/macOS/Monokai Inconsolata.dvtcolortheme" ~/Library/Developer/Xcode/UserData/FontAndColorThemes/

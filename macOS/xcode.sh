@@ -1,3 +1,7 @@
+# Update Xcode theme
+mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
+cp "$DOTFILES/macOS/Monokai Inconsolata.dvtcolortheme" ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
+
 # Trim trailing whitespace
 defaults write com.apple.dt.Xcode DVTTextEditorTrimTrailingWhitespace -bool true
 
