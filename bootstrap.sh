@@ -12,6 +12,13 @@ while true; do
     esac
 done
 
+echo "Use a [P]ersonal or [W]ork configuration? "
+read -r config_choice
+case "$config_choice" in
+    [Pp]* ) export DOTFILES_PROFILE="personal";;
+    [Ww]* ) export DOTFILES_PROFILE="work";;
+esac
+
 sudo -v
 
 # Check if zsh is available, exit with an error message if not

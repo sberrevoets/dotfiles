@@ -1,7 +1,6 @@
 #!/bin/sh
 
-read -p "Personal or work (skip)? (p/w/s): " answer
-if [[ $answer == "p" ]];
+if [[ $DOTFILES_PROFILE == "personal" ]];
 then
     dockutil --no-restart --remove all
     dockutil --no-restart --add "/Applications/Safari.app"
@@ -12,7 +11,7 @@ then
     dockutil --no-restart --add "/Applications/Slack.app"
     dockutil --no-restart --add "/Applications/Ghostty.app"
     dockutil --no-restart --add "~/Downloads" --view fan
-elif [[ $answer == "w" ]];
+elif [[ $answer == "work" ]];
 then
     dockutil --no-restart --remove all
     dockutil --no-restart --add "/Applications/Google Chrome.app"
@@ -22,6 +21,8 @@ then
     dockutil --no-restart --add "/Applications/Slack.app"
     dockutil --no-restart --add "/Applications/Ghostty.app"
     dockutil --no-restart --add "~/Downloads" --view fan
+else
+    echo "No DOTFILES_PROFILE set, skipping dock configuration."
 fi
 
 ## System Preferences
