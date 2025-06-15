@@ -64,7 +64,7 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 # Install vim plugins and configurations
-./vim/install.sh
+./vim/install.sh install
 
 # Install node
 ./nvm/install.sh install
