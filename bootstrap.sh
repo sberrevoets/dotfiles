@@ -1,7 +1,18 @@
 #!/bin/bash
 
-# Inform that Terminal needs access in System Preferences > Privacy & Security > Developer Tools
-read -r -p "Ensure that Terminal has access in System Preferences > Privacy & Security > Developer Tools. If not, enable there and restart Terminal. Otherwise, press enter to continue..."
+echo "Ensure Terminal has access in System Preferences > Privacy & Security > Full Disk Access & Developer Tools."
+while true; do
+    echo "[O]pen Preferences, [C]ontinue, or [Q]uit? "
+    read -r choice
+    case "$choice" in
+        [Oo]* ) open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles";;
+        [Cc]* ) break;;
+        [Qq]* ) echo "Exiting..."; return 0;;
+        * ) echo "Please answer O, C, or Q.";;
+    esac
+done
+
+sudo -v
 
 # Check if zsh is available, exit with an error message if not
 # TODO: make this nicer and more compatible when zsh is not installed
