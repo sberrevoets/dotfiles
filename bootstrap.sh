@@ -7,6 +7,11 @@ if ! command -v zsh &> /dev/null; then
     exit 1
 fi
 
+if [[ $ZSH_EVAL_CONTEXT != *:file ]]; then
+    echo "Source this file instead of executing it directly"
+    exit 1
+fi
+
 # $DOTFILES might not be set yet as we're in the middle of the installation process
 if [ -z "$DOTFILES" ]; then
     export DOTFILES="$(dirname $(readlink -f $0))"
@@ -20,13 +25,14 @@ chsh -s $(which zsh)
 
 # Create base installation
 ./install.sh install
+source "$DOTFILES/zshrc"
 
 # Configure ghostty
 mkdir -p ~/.config/ghostty
 ln -s $DOTFILES/ghostty  ~/.config/ghostty/config
 
 # Install macOS preferences
-if [ "$(uname)" == "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
     echo "macOS (Darwin) detected; sourcing macOS preferences"
     ./macOS/install.sh
 
