@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ $ZSH_EVAL_CONTEXT != *:file ]]; then
+    echo "Source this file instead of executing it directly"
+    exit 1
+fi
+
 echo "Ensure Terminal has access in System Preferences > Privacy & Security > Full Disk Access & Developer Tools."
 while true; do
     echo "[O]pen Preferences, [C]ontinue, or [Q]uit? "
@@ -25,11 +30,6 @@ sudo -v
 # TODO: make this nicer and more compatible when zsh is not installed
 if ! command -v zsh &> /dev/null; then
     echo "zsh is required but not installed"
-    exit 1
-fi
-
-if [[ $ZSH_EVAL_CONTEXT != *:file ]]; then
-    echo "Source this file instead of executing it directly"
     exit 1
 fi
 
