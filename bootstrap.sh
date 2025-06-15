@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Inform that Terminal needs access in System Preferences > Privacy & Security > Developer Tools
+read -r -p "Ensure that Terminal has access in System Preferences > Privacy & Security > Developer Tools. If not, enable there and restart Terminal. Otherwise, press enter to continue..."
+
 # Check if zsh is available, exit with an error message if not
 # TODO: make this nicer and more compatible when zsh is not installed
 if ! command -v zsh &> /dev/null; then
