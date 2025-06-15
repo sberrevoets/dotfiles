@@ -3,6 +3,7 @@
 # This isn't strictly necessary but avoids some confusing warnings:
 # https://github.com/Homebrew/homebrew-bundle/issues/803
 tap 'keith/formulae'
+tap 'shaunsingh/SFMono-Nerd-Font-Ligaturized'
 
 brew 'atuin'
 brew 'black'
@@ -10,7 +11,6 @@ brew 'cask'
 brew 'colordiff'
 brew 'coreutils'
 brew 'dockutil'
-brew 'epk/epk/font-sf-mono-nerd-font'
 brew 'fd'
 brew 'gh'
 brew 'git'
@@ -43,6 +43,8 @@ cask 'qlmarkdown'
 cask 'the-unarchiver'
 cask 'slack'
 cask 'ghostty'
+
+cask 'font-sf-mono-nerd-font-ligaturized'
 
 # TODO: install these only on work laptop
 cask 'linear-linear'
