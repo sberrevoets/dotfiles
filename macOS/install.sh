@@ -17,7 +17,6 @@ fi
 
 brew update
 brew bundle --file=$DOTFILES/macOS/Brewfile
-brew bundle --file=$DOTFILES/macOS/Caskfile
 
 # Install Mac App Store apps
 $DOTFILES/macOS/mas.sh

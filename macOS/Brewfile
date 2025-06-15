@@ -1,33 +1,24 @@
-tap 'aykamko/tag-ag'
-tap 'homebrew/bundle'
-tap 'sberrevoets/formulae'
-tap 'hpedrorodrigues/homebrew-tools'
+# brew 'sberrevoets/formulae/urlview', args: ['HEAD']
 
-# TODO: simplify this file
-# Remove unused brews
-# Combine brews and casks into 1
-
-brew 'sberrevoets/formulae/urlview', args: ['HEAD']
+# This isn't strictly necessary but avoids some confusing warnings:
+# https://github.com/Homebrew/homebrew-bundle/issues/803
+tap 'keith/formulae'
 
 brew 'atuin'
 brew 'black'
 brew 'cask'
 brew 'colordiff'
 brew 'coreutils'
-brew 'ctags'
-brew 'dduan/formulae/tre'
+brew 'tre-command'
 brew 'dockutil'
 brew 'fd'
-brew 'findutils'
 brew 'git'
-brew 'git-pile'
 brew 'gh'
-brew 'gnu-sed'
 brew 'jq'
 brew 'keith/formulae/fzy'
 brew 'keith/formulae/tag'
+brew 'keith/formulae/git-pile'
 brew 'lua-language-server'
-brew 'lynx'
 brew 'marksman'
 brew 'mas'
 brew 'nvim'
@@ -36,10 +27,8 @@ brew 'openssl'
 brew 'python3'
 brew 'pyenv'
 brew 'rbenv'
-brew 'rename'
 brew 'ripgrep'
 brew 'ruby-install'
-brew 'the_silver_searcher'
 brew 'tokei'
 brew 'sd'
 brew 'speedtest-cli'
@@ -47,3 +36,14 @@ brew 'stylua'
 brew 'tmux'
 brew 'vim'
 brew 'zsh'
+
+cask '1password'
+cask 'qlmarkdown'
+cask 'the-unarchiver'
+cask 'slack'
+cask 'dockutil'
+cask 'ghostty'
+
+# TODO: install these only on work laptop
+cask 'linear-linear'
+cask 'notion'
