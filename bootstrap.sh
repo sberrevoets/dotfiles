@@ -63,6 +63,9 @@ if [ "$(uname)" = "Darwin" ]; then
     set_zsh_shell
 fi
 
+# Install pyenv-managed Python
+./python/install.sh install
+
 # Install vim plugins and configurations
 ./vim/install.sh install
 
