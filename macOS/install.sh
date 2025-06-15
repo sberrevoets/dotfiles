@@ -18,6 +18,10 @@ fi
 brew update
 brew bundle --file=$DOTFILES/macOS/Brewfile
 
+if [ "$DOTFILES_PROFILE" = "work" ]; then
+  brew bundle --file=$DOTFILES/macOS/Brewfile.speak
+fi
+
 # Install Mac App Store apps
 $DOTFILES/macOS/mas.sh
 

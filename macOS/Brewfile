@@ -45,7 +45,3 @@ cask 'slack'
 cask 'ghostty'
 
 cask 'font-sf-mono-nerd-font-ligaturized'
-
-# TODO: install these only on work laptop
-cask 'linear-linear'
-cask 'notion'
