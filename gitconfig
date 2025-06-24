@@ -36,6 +36,7 @@
     pf      = push --force
     pr      = !sh -c 'hub pull-request -o'
     r       = root
+    rc      = commit -C HEAD@{1}
     rb      = rebase
     rba     = rebase --abort
     rbc     = rebase --continue
