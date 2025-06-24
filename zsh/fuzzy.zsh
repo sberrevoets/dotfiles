@@ -3,7 +3,7 @@ find_files() {
         -o -type f -print \
         -o -type d -print \
         -o -type l -print 2> /dev/null | sed 1d | cut -b3- | fzy | while read item; do
-            printf '%q ' "$item"
+            printf '%s ' "$item"
     done
     echo
 }
