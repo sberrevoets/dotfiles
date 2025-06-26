@@ -3,7 +3,7 @@
 pyenv_python_version="3.13"
 
 die() {
-    echo "Usage: ./install.sh {install|uninstall}"
+    echo "Usage: $0 {install|uninstall}"
     exit 1
 }
 

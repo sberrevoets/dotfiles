@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+die() {
+    echo "Usage: $0 {install|uninstall}"
+    exit 1
+}
+
 apps=(
     "1438243180" # Dark Reader for Safari
     "1544743900" # Hush Nag Blocker

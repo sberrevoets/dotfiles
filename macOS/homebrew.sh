@@ -1,3 +1,10 @@
+#!/usr/bin/env bash
+
+die() {
+    echo "Usage: $0 {install|uninstall}"
+    exit 1
+}
+
 install() {
     if ! which brew &> /dev/null; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -18,7 +25,6 @@ uninstall() {
 
     rm -rf /opt/homebrew
 }
-
 
 if [[ $# != 1 ]]; then
     die

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 die() {
-    echo "Usage: ./install.sh {install|uninstall}"
+    echo "Usage: $0 {install|uninstall}"
     exit 1
 }
 
