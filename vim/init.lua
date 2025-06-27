@@ -7,6 +7,8 @@ require("catppuccin").setup({
 })
 vim.cmd.colorscheme("catppuccin-mocha")
 
+vim.g.python3_host_prog = vim.fn.expand("$HOME") .. "/.pyenv/versions/nvim-venv/bin/python"
+
 -- Map leader + rl to reload config
 vim.keymap.set("n", "<leader>rl", function()
   local config_file = vim.fn.stdpath("config") .. "/init.lua"
