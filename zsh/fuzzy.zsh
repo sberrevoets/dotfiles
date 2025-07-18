@@ -38,17 +38,8 @@ fuzzy-git-file-widget() {
     zle redisplay
 }
 
-fuzzy-file-widget() {
-    LBUFFER="${LBUFFER}$(find_files)"
-    zle redisplay
-    zle accept-line
-}
-
 zle     -N   fuzzy-git-branch-widget
 bindkey '^B' fuzzy-git-branch-widget
 
 zle     -N   fuzzy-git-file-widget
 bindkey '^F' fuzzy-git-file-widget
-
-zle     -N   fuzzy-file-widget
-bindkey '^A' fuzzy-file-widget
