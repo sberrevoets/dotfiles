@@ -1,0 +1,175 @@
+#!/usr/bin/env python3
+
+import json
+import re
+import subprocess
+import sys
+
+
+def has_ticket_prefix(message):
+    """Check if message already has a ticket number prefix (e.g., 'ENG-123:')."""
+    if not message:
+        return False
+
+    # Match pattern: 2+ uppercase letters, dash, digits, colon
+
+    pattern = r"^[A-Z]{2,}-\d+:"
+    return bool(re.match(pattern, message.strip()))
+
+
+def get_last_commit_message():
+    """Get the last commit message."""
+    try:
+        result = subprocess.run(
+            ["git", "log", "-1", "--pretty=%s"],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return result.stdout.strip()
+    except subprocess.CalledProcessError:
+        print(
+            "Error: Could not get last commit message. Are you in a git repository?"
+        )
+        sys.exit(1)
+
+
+def get_last_commit_full():
+    """Get the last commit's title and body separately."""
+    try:
+        # Get commit title
+        title_result = subprocess.run(
+            ["git", "log", "-1", "--pretty=%s"],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        title = title_result.stdout.strip()
+
+        # Get commit body
+        body_result = subprocess.run(
+            ["git", "log", "-1", "--pretty=%b"],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        body = body_result.stdout.strip()
+
+        return title, body
+    except subprocess.CalledProcessError:
+        print(
+            "Error: Could not get commit details. Are you in a git repository?"
+        )
+        sys.exit(1)
+
+
+def get_available_teams():
+    """Get list of available teams from Linear API."""
+    try:
+        api = LinearAPI()
+        teams = api.list_teams()
+        return teams
+    except Exception:
+        return []
+
+
+def is_valid_team(team_abbrev):
+    """Check if the given string is a valid team abbreviation."""
+    if not team_abbrev:
+        return False
+
+    teams = get_available_teams()
+    if not teams:
+        return False
+
+    team_keys = {team["key"].upper() for team in teams}
+    return team_abbrev.upper() in team_keys
+
+
+def create_linear_ticket(title, description, team):
+    """Create a Linear ticket using linear.py and return the ticket number."""
+    try:
+        print("Creating Linear ticket for team:", team)
+        cmd = [
+            "linear",
+            "create",
+            "--team",
+            team,
+            "--title",
+            title,
+        ]
+
+        if description:
+            cmd.extend(["--description", description])
+
+        # Run the command and capture stdout directly
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+
+        # Parse JSON output from linear.py
+        output = json.loads(result.stdout.strip())
+
+        if output.get("success"):
+            return output.get("ticket_number")
+        else:
+            print(
+                f"Error creating ticket: {output.get('error', 'Unknown error')}"
+            )
+            return None
+
+    except (
+        subprocess.CalledProcessError,
+        json.JSONDecodeError,
+    ) as e:
+        print(f"Error creating ticket: {e}")
+        return None
+
+
+def amend_commit_with_prefix(ticket_number, original_message):
+    """Amend the last commit with the ticket number prefix."""
+    new_message = f"{ticket_number}: {original_message}"
+
+    try:
+        subprocess.run(
+            ["git", "commit", "--amend", "-m", new_message], check=True
+        )
+    except subprocess.CalledProcessError:
+        sys.exit(1)
+
+
+def main():
+    original_message = get_last_commit_message()
+
+    # Check if commit already has a ticket prefix
+    if has_ticket_prefix(original_message):
+        return
+
+    user_input = (
+        input("Enter ticket number (ENG-1234) or team key [ENG]: ").strip()
+        or "ENG"
+    )
+
+    if is_valid_team(user_input):
+        # Input is a team abbreviation - create ticket with this team
+        commit_title, commit_body = get_last_commit_full()
+        ticket_number = create_linear_ticket(
+            commit_title, commit_body, user_input.upper()
+        )
+        if not ticket_number:
+            return
+    else:
+        # Input is assumed to be a ticket number
+        ticket_number = user_input
+
+    if ticket_number in original_message:
+        return
+
+    amend_commit_with_prefix(ticket_number, original_message)
+
+
+if __name__ == "__main__":
+    main()

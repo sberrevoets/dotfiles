@@ -1,0 +1,227 @@
+#!/usr/bin/env python3
+"""
+Linear API ticket reader script.
+
+Reads API token from ~/.netrc file and provides basic ticket operations.
+Configure your ~/.netrc file with:
+machine api.linear.app login your-email password your-api-token
+"""
+
+import argparse
+import json
+import netrc
+import requests
+from typing import Dict, List, Optional, Any
+
+
+class LinearAPI:
+    BASE_URL = "https://api.linear.app/graphql"
+    TEAM_ID = "5a766cca-93b4-42d6-a7e2-88712b1dffcd"
+
+    def __init__(self):
+        self.session = requests.Session()
+        # Disable automatic netrc authentication
+        self.session.trust_env = False
+        self._setup_auth()
+
+    def _setup_auth(self):
+        """Setup authentication using netrc file."""
+        try:
+            netrc_file = netrc.netrc()
+            auth_info = netrc_file.authenticators("api.linear.app")
+            if not auth_info:
+                raise ValueError(
+                    "No credentials found for api.linear.app in ~/.netrc"
+                )
+
+            _, _, api_token = auth_info
+            # Don't let requests automatically convert this to Basic auth
+            # Set the authorization header directly with the raw token
+            self.session.headers.update(
+                {
+                    "Authorization": api_token,
+                    "Content-Type": "application/json",
+                }
+            )
+            # Ensure no auto-auth is applied
+            self.session.auth = None
+        except FileNotFoundError:
+            raise FileNotFoundError(
+                "~/.netrc file not found. Please create it with your Linear API credentials."
+            )
+        except Exception as e:
+            raise ValueError(f"Error reading netrc file: {e}")
+
+    def _execute_query(
+        self, query: str, variables: Optional[Dict] = None
+    ) -> Dict[str, Any]:
+        """Execute a GraphQL query against the Linear API."""
+        payload = {
+            "query": query,
+            "variables": variables or {},
+        }
+
+        response = self.session.post(self.BASE_URL, json=payload)
+
+        if response.status_code != 200:
+            print(f"Error response: {response.text}")
+            response.raise_for_status()
+
+        data = response.json()
+        if "errors" in data:
+            raise Exception(f"GraphQL errors: {data['errors']}")
+
+        return data["data"]
+
+    def get_issue(self, issue_id: str) -> Optional[Dict]:
+        """Get a specific issue by ID or identifier."""
+        query = """
+        query($issueId: String!) {
+            issue(id: $issueId) {
+                id
+                identifier
+                title
+                description
+                url
+            }
+        }
+        """
+
+        variables = {"issueId": issue_id}
+        result = self._execute_query(query, variables)
+        return result["issue"]
+
+    def list_teams(self) -> List[Dict]:
+        """List all available teams."""
+        query = """
+        query {
+            teams {
+                nodes {
+                    id
+                    name
+                    key
+                    description
+                }
+            }
+        }
+        """
+
+        result = self._execute_query(query)
+        return result["teams"]["nodes"]
+
+    def get_team_by_key(self, team_key: str) -> Optional[Dict]:
+        """Get a team by its key/abbreviation."""
+        teams = self.list_teams()
+        team_key_upper = team_key.upper()
+
+        for team in teams:
+            if team["key"].upper() == team_key_upper:
+                return team
+        return None
+
+    def create_issue(self, team_id: str, title: str, description: str) -> Dict:
+        """Create a new issue."""
+        mutation = """
+        mutation IssueCreate($input: IssueCreateInput!) {
+            issueCreate(input: $input) {
+                success
+                issue {
+                    id
+                    identifier
+                    title
+                    description
+                    url
+                    state {
+                        name
+                    }
+                    assignee {
+                        id
+                        name
+                    }
+                }
+            }
+        }
+        """
+
+        variables = {
+            "input": {
+                "title": title,
+                "description": description,
+                "teamId": team_id,
+                "assigneeId": "760e22e0-9372-43f5-a424-bd7a32d5bf78",
+            }
+        }
+
+        result = self._execute_query(mutation, variables)
+        return result["issueCreate"]
+
+
+def create_ticket(
+    api: LinearAPI, team: str, title: str, description: str
+) -> str:
+    selected_team = api.get_team_by_key(team)
+    if not selected_team:
+        teams = api.list_teams()
+        valid_keys = ", ".join(sorted([team["key"] for team in teams]))
+        print(f"Error: Team '{team}' not found. Valid teams: {valid_keys}")
+        raise ValueError(f"Invalid team key: {team}")
+
+    try:
+        result = api.create_issue(selected_team["id"], title, description)
+
+        if result["success"]:
+            issue = result["issue"]
+            output = {
+                "success": True,
+                "ticket_number": issue["identifier"],
+                "title": issue["title"],
+                "url": issue["url"],
+            }
+        else:
+            output = {"success": False, "error": "Failed to create ticket"}
+
+        return json.dumps(output)
+
+    except Exception as e:
+        output = {"success": False, "error": str(e)}
+        return json.dumps(output)
+
+
+def main():
+    """CLI for the Linear API."""
+    parser = argparse.ArgumentParser(
+        description="Linear API CLI",
+        usage="linear <command> [options]",
+    )
+    parser.add_argument(
+        "command",
+        nargs="?",
+        default="",
+        help="Command to execute",
+        choices=["list-teams", "create"],
+    )
+
+    parser.add_argument("--team", help="Team abbreviation (e.g., ENG, VOICE)")
+    parser.add_argument("--title", help="Title of the issue")
+    parser.add_argument(
+        "--description", help="Description of the issue", default=""
+    )
+
+    args = parser.parse_args()
+
+    try:
+        api = LinearAPI()
+
+        if args.command == "list-teams":
+            print(api.list_teams())
+        elif args.command == "create":
+            create_ticket(api, args.team, args.title, args.description)
+        else:
+            print(f"Unknown command: {args.command}")
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+if __name__ == "__main__":
+    main()
