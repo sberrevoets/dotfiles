@@ -10,3 +10,4 @@ alias v=$EDITOR
 alias cp='cp -ir'
 
 alias df='cd $DOTFILES'
+alias copy=pbcopy
