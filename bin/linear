@@ -148,7 +148,7 @@ class LinearAPI:
                 "title": title,
                 "description": description,
                 "teamId": team_id,
-                "assigneeId": "760e22e0-9372-43f5-a424-bd7a32d5bf78",
+                "assigneeId": "187c356e-409d-46ea-8b8b-5eb0da9c450a",
             }
         }
 
