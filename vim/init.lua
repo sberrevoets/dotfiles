@@ -166,17 +166,6 @@ require("nvim-tree").setup({
   update_focused_file = { enable = true },
 })
 
-vim.api.nvim_create_autocmd({ "VimEnter", "BufReadPost" }, {
-  callback = function()
-    local is_git_repo = vim.fn.systemlist("git rev-parse --is-inside-work-tree")[1] == "true"
-    local is_git_commit_file = vim.fn.expand("%:t") == "COMMIT_EDITMSG"
-
-    if not is_git_commit_file and is_git_repo then
-      require("nvim-tree.api").tree.toggle({ focus = false })
-    end
-  end,
-})
-
 -- Make :bd and :q behave as usual when tree is visible
 vim.api.nvim_create_autocmd({ "BufEnter", "QuitPre" }, {
   nested = false,
