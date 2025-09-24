@@ -4,9 +4,10 @@ import json
 import re
 import subprocess
 import sys
+from typing import List, Dict, Any, Tuple, Optional
 
 
-def has_ticket_prefix(message):
+def has_ticket_prefix(message: str) -> bool:
     """Check if message already has a ticket number prefix (e.g., 'ENG-123:')."""
     if not message:
         return False
@@ -17,7 +18,7 @@ def has_ticket_prefix(message):
     return bool(re.match(pattern, message.strip()))
 
 
-def get_last_commit_message():
+def get_last_commit_message() -> str:
     """Get the last commit message."""
     try:
         result = subprocess.run(
@@ -34,8 +35,8 @@ def get_last_commit_message():
         sys.exit(1)
 
 
-def get_last_commit_full():
-    """Get the last commit's title and body separately."""
+def get_last_commit_full() -> Tuple[str, str]:
+    """Get the last commit's title and body."""
     try:
         # Get commit title
         title_result = subprocess.run(
@@ -63,17 +64,22 @@ def get_last_commit_full():
         sys.exit(1)
 
 
-def get_available_teams():
+def get_available_teams() -> List[Dict[str, Any]]:
     """Get list of available teams from Linear API."""
     try:
-        api = LinearAPI()
-        teams = api.list_teams()
-        return teams
+        cmd = ["linear", "list-teams"]
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return json.loads(result.stdout.strip())
     except Exception:
         return []
 
 
-def is_valid_team(team_abbrev):
+def is_valid_team(team_abbrev: str) -> bool:
     """Check if the given string is a valid team abbreviation."""
     if not team_abbrev:
         return False
@@ -86,7 +92,9 @@ def is_valid_team(team_abbrev):
     return team_abbrev.upper() in team_keys
 
 
-def create_linear_ticket(title, description, team):
+def create_linear_ticket(
+    title: str, description: Optional[str], team: str
+) -> Optional[str]:
     """Create a Linear ticket using linear.py and return the ticket number."""
     try:
         print("Creating Linear ticket for team:", team)
@@ -129,9 +137,18 @@ def create_linear_ticket(title, description, team):
         return None
 
 
-def amend_commit_with_prefix(ticket_number, original_message):
+def amend_commit_with_prefix(
+    ticket_number: str, original_title: str, original_body: Optional[str]
+) -> None:
     """Amend the last commit with the ticket number prefix."""
-    new_message = f"{ticket_number}: {original_message}"
+    # Create new title with prefix
+    new_title = f"{ticket_number}: {original_title}"
+
+    # Prepare the full commit message
+    if original_body:
+        new_message = f"{new_title}\n\n{original_body}"
+    else:
+        new_message = new_title
 
     try:
         subprocess.run(
@@ -141,11 +158,12 @@ def amend_commit_with_prefix(ticket_number, original_message):
         sys.exit(1)
 
 
-def main():
-    original_message = get_last_commit_message()
+def main() -> None:
+    # Get the original commit title and body
+    original_title, original_body = get_last_commit_full()
 
     # Check if commit already has a ticket prefix
-    if has_ticket_prefix(original_message):
+    if has_ticket_prefix(original_title):
         return
 
     user_input = (
@@ -155,9 +173,8 @@ def main():
 
     if is_valid_team(user_input):
         # Input is a team abbreviation - create ticket with this team
-        commit_title, commit_body = get_last_commit_full()
         ticket_number = create_linear_ticket(
-            commit_title, commit_body, user_input.upper()
+            original_title, original_body, user_input.upper()
         )
         if not ticket_number:
             return
@@ -165,10 +182,10 @@ def main():
         # Input is assumed to be a ticket number
         ticket_number = user_input
 
-    if ticket_number in original_message:
+    if ticket_number in original_title:
         return
 
-    amend_commit_with_prefix(ticket_number, original_message)
+    amend_commit_with_prefix(ticket_number, original_title, original_body)
 
 
 if __name__ == "__main__":
