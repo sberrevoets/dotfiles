@@ -16,7 +16,9 @@
     ap      = add -p
     b       = branch -vv
     bd      = branch -d
-    bda     = !sh -c 'git branch | grep -vw "$(git main-branch)" | xargs git branch -D'
+    bD      = branch -D
+    bda     = !sh -c 'git branch | grep -vw "$(git main-branch)" | xargs git branch -d'
+    bDa     = !sh -c 'git branch | grep -vw "$(git main-branch)" | xargs git branch -D'
     c       = commit -v
     ca      = commit -v --amend --no-edit
     caa     = !sh -c 'git add --all && git ca'
