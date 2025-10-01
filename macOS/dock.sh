@@ -2,10 +2,11 @@
 
 profile=${1:-$DOTFILES_PROFILE}
 
+current_xcode_path=$(xcode-select -p | sed 's|/Contents/Developer||')
 if [[ $profile == "personal" ]]; then
     dockutil --no-restart --remove all
     dockutil --no-restart --add "/Applications/Safari.app"
-    dockutil --no-restart --add "/Applications/Xcode.app"
+    dockutil --no-restart --add "$current_xcode_path"
     dockutil --no-restart --add "/System/Applications/Mail.app"
     dockutil --no-restart --add "/System/Applications/Messages.app"
     dockutil --no-restart --add "/System/Applications/Calendar.app"
@@ -15,7 +16,7 @@ if [[ $profile == "personal" ]]; then
 elif [[ $profile == "work" ]]; then
     dockutil --no-restart --remove all
     dockutil --no-restart --add "/Applications/Google Chrome.app"
-    dockutil --no-restart --add "/Applications/Xcode.app"
+    dockutil --no-restart --add "$current_xcode_path"
     dockutil --no-restart --add "/Applications/Linear.app"
     dockutil --no-restart --add "/Applications/Notion.app"
     dockutil --no-restart --add "/Applications/Slack.app"
