@@ -1,7 +1,8 @@
 #!/bin/sh
 
-if [[ $DOTFILES_PROFILE == "personal" ]];
-then
+profile=${1:-$DOTFILES_PROFILE}
+
+if [[ $profile == "personal" ]]; then
     dockutil --no-restart --remove all
     dockutil --no-restart --add "/Applications/Safari.app"
     dockutil --no-restart --add "/Applications/Xcode.app"
@@ -11,8 +12,7 @@ then
     dockutil --no-restart --add "/Applications/Slack.app"
     dockutil --no-restart --add "/Applications/Ghostty.app"
     dockutil --no-restart --add "~/Downloads" --view fan
-elif [[ $answer == "work" ]];
-then
+elif [[ $profile == "work" ]]; then
     dockutil --no-restart --remove all
     dockutil --no-restart --add "/Applications/Google Chrome.app"
     dockutil --no-restart --add "/Applications/Xcode.app"
@@ -22,7 +22,7 @@ then
     dockutil --no-restart --add "/Applications/Ghostty.app"
     dockutil --no-restart --add "~/Downloads" --view fan
 else
-    echo "No DOTFILES_PROFILE set, skipping dock configuration."
+    echo "No personal/work profile specified, skipping dock configuration."
 fi
 
 ## System Preferences
