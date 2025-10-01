@@ -11,3 +11,5 @@
 export PATH="$HOME/.bin:/opt/homebrew/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin"
 export EDITOR="$(which nvim)"
 export CDPATH=".:$HOME/Developer"
+
+export GIT_PILE_USE_PR_TEMPLATE="true"
