@@ -41,3 +41,7 @@ Temporary Items
 
 # Swift Package Manager
 *.build
+*.swiftpm
+
+# Claude
+.claude
