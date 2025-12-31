@@ -5,7 +5,7 @@ profile=${1:-$DOTFILES_PROFILE}
 current_xcode_path=$(xcode-select -p | sed 's|/Contents/Developer||')
 if [[ $profile == "personal" ]]; then
     dockutil --no-restart --remove all
-    dockutil --no-restart --add "/Applications/Safari.app"
+    dockutil --no-restart --add "/System/Cryptexes/App/System/Applications/Safari.app"
     dockutil --no-restart --add "$current_xcode_path"
     dockutil --no-restart --add "/System/Applications/Mail.app"
     dockutil --no-restart --add "/System/Applications/Messages.app"
