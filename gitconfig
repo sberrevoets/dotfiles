@@ -35,8 +35,8 @@
     llg     = log --graph
     m       = merge
     o       = !sh -c 'hub browse'
-    p       = push
-    pf      = push --force
+    p       = tidy-push
+    pf      = tidy-push --force
     pr      = !sh -c 'git linear-amend && git submitpr'
     r       = root
     rc      = commit -C HEAD@{1}

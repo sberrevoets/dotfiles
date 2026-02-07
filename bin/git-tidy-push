@@ -1,0 +1,74 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# git-tidy-push: Push, but warn if there are un-squashed fixup commits.
+# Offers to autosquash-rebase them before pushing.
+
+dry_run=false
+push_args=()
+
+for arg in "$@"; do
+  if [[ "$arg" == "--dry-run" ]]; then
+    dry_run=true
+  else
+    push_args+=("$arg")
+  fi
+done
+
+current_branch=$(git symbolic-ref --short HEAD)
+
+# Determine upstream ref for diffing
+if upstream=$(git rev-parse --abbrev-ref '@{upstream}' 2>/dev/null); then
+  base=$(git merge-base "$upstream" HEAD)
+elif git rev-parse --verify "origin/$current_branch" >/dev/null 2>&1; then
+  base=$(git merge-base "origin/$current_branch" HEAD)
+else
+  main=$(git main-branch)
+  base=$(git merge-base "$main" HEAD)
+fi
+
+fixups=$(git log --oneline --grep="^fixup! " "$base..HEAD" || true)
+
+if [[ -z "$fixups" ]]; then
+  if $dry_run; then
+    echo "No fixup commits found, would push."
+    exit 0
+  fi
+  exec git push "${push_args[@]}"
+fi
+
+echo "Found fixup commits that haven't been squashed:"
+echo ""
+echo "$fixups"
+echo ""
+
+read -rp "Autosquash rebase before pushing? [Y/n] " answer
+if [[ "$answer" =~ ^[Nn]$ ]]; then
+  read -rp "Push anyway with fixup commits? [y/N] " answer2
+  if [[ ! "$answer2" =~ ^[Yy]$ ]]; then
+    echo "Aborting."
+    exit 1
+  fi
+
+  if $dry_run; then
+    echo "Would push (with fixup commits)."
+    exit 0
+  fi
+  exec git push "${push_args[@]}"
+fi
+
+# Rebase to squash fixups
+if $dry_run; then
+  echo "Would autosquash rebase onto $base, then push."
+  exit 0
+fi
+
+if ! git rebase --autosquash "$base"; then
+  echo ""
+  echo "Rebase failed. Resolve conflicts, then run:"
+  echo "  git rebase --continue && git push${push_args[*]+ ${push_args[*]}}"
+  exit 1
+fi
+
+exec git push "${push_args[@]}"
