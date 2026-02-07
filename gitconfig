@@ -73,11 +73,18 @@
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
 [interactive]
-    diffFilter = diff-highlight
+    diffFilter = delta --color-only
 [pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+    log = delta
+    show = delta
+    diff = delta
+[delta]
+    navigate = true
+    light = false
+    line-numbers = true
+    syntax-theme = Catppuccin-mocha
+    hyperlinks = true
+    diff-so-fancy = true
 [status]
     showUntrackedFiles = all
 [mergetool "nvim"]
