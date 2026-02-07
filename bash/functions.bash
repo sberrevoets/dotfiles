@@ -1,6 +1,10 @@
 # More informative ls
 function l() {
-    ls -lFh --color
+    if command -v eza &> /dev/null; then
+        eza -la --git --icons --group-directories-first
+    else
+        ls -lFh --color
+    fi
 }
 
 # Create a directory and navigate to it

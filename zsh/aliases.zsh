@@ -19,3 +19,6 @@ alias d7='cd -7'
 alias d8='cd -8'
 alias d9='cd -9'
 alias d10='cd -10'
+
+alias ls='eza --icons --group-directories-first'
+alias ll='eza -la --git --icons --group-directories-first'
