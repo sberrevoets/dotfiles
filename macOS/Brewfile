@@ -6,6 +6,7 @@ tap 'keith/formulae'
 tap 'shaunsingh/SFMono-Nerd-Font-Ligaturized'
 
 brew 'atuin'
+brew 'bat'
 brew 'black'
 brew 'cask'
 brew 'colordiff'
