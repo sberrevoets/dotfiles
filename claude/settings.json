@@ -4,6 +4,10 @@
     "swift-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true
   },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "feedbackSurveyState": {
     "lastShownTime": 1754174795340
   },
@@ -41,7 +45,7 @@
       "Bash(find *)",
       "Bash(grep *)",
       "Bash(head *)",
-      "Bash(ls*)",
+      "Bash(ls *)",
       "Bash(man *)",
       "Bash(printenv*)",
       "Bash(pwd)",
@@ -65,7 +69,8 @@
       "Task",
 
       "mcp__Linear__*",
-      "mcp__XcodeBuildMCP__*"
+      "mcp__XcodeBuildMCP__*",
+      "mcp__xcode__*"
     ],
     "deny": []
   }
