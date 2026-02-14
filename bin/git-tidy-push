@@ -35,7 +35,7 @@ if [[ -z "$fixups" ]]; then
     echo "No fixup commits found, would push."
     exit 0
   fi
-  exec git push "${push_args[@]}"
+  exec git push ${push_args[@]+"${push_args[@]}"}
 fi
 
 echo "Found fixup commits that haven't been squashed:"
@@ -55,7 +55,7 @@ if [[ "$answer" =~ ^[Nn]$ ]]; then
     echo "Would push (with fixup commits)."
     exit 0
   fi
-  exec git push "${push_args[@]}"
+  exec git push ${push_args[@]+"${push_args[@]}"}
 fi
 
 # Rebase to squash fixups
@@ -71,4 +71,4 @@ if ! git rebase --autosquash "$base"; then
   exit 1
 fi
 
-exec git push "${push_args[@]}"
+exec git push ${push_args[@]+"${push_args[@]}"}
