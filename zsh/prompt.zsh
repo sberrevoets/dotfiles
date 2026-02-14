@@ -37,9 +37,11 @@ function prompt_host() {
 function prompt_git_status() {
     local message=""
     local message_color="%{$fg_bold[green]%}"
+    local git_status=""
 
-    local staged=$(git --no-optional-locks status --porcelain 2>/dev/null | grep -e "^M " -e "^A ")
-    local unstaged=$(git --no-optional-locks status --porcelain 2>/dev/null | grep -e "^ M" -e "^??")
+    git_status="$(git --no-optional-locks status --porcelain 2>/dev/null)"
+    local staged=$(printf "%s\n" "$git_status" | grep -e "^M " -e "^A ")
+    local unstaged=$(printf "%s\n" "$git_status" | grep -e "^ M" -e "^??")
 
     if [[ -n ${staged} ]]; then
         message_color="%{$fg_bold[red]%}"
