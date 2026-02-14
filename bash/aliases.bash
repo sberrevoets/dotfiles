@@ -8,6 +8,7 @@ alias g=git
 alias gr='cd $(git r)'
 alias v=$EDITOR
 alias cp='cp -ir'
+alias ai='agents'
 
 alias df='cd $DOTFILES'
 alias copy=pbcopy
