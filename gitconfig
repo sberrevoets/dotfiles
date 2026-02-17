@@ -82,7 +82,7 @@
     navigate = true
     light = false
     line-numbers = true
-    syntax-theme = Catppuccin-mocha
+    syntax-theme = Catppuccin Mocha
     hyperlinks = true
     diff-so-fancy = true
 [status]
