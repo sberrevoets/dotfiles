@@ -156,6 +156,10 @@ def _has_tmux() -> bool:
     return run(["which", "tmux"]).returncode == 0
 
 
+def _has_fzf() -> bool:
+    return run(["which", "fzf"]).returncode == 0
+
+
 def _color(code: str, text: str) -> str:
     if not sys.stdout.isatty():
         return text
@@ -170,8 +174,39 @@ def _short_path(path: Path) -> str:
         return str(path)
 
 
-def cmd_list() -> None:
-    """Show active agent worktrees."""
+def _format_row(
+    name: str, base: str, path: Path, ahead: int, behind: int,
+    name_width: int, base_width: int,
+) -> str:
+    """Format a single agent row for display."""
+    if behind > 0:
+        bullet = _color("33", "●")  # yellow = stale
+    else:
+        bullet = _color("32", "●")  # green = up to date
+
+    styled_name = _color("1;36", name.ljust(name_width))
+    styled_base = _color("33", base.ljust(base_width))
+
+    status_parts = []
+    plain_parts = []
+    if ahead > 0:
+        status_parts.append(_color("32", f"↑{ahead}"))
+        plain_parts.append(f"↑{ahead}")
+    if behind > 0:
+        status_parts.append(_color("31", f"↓{behind}"))
+        plain_parts.append(f"↓{behind}")
+    if not status_parts:
+        status_parts.append(_color("2", "clean"))
+        plain_parts.append("clean")
+    status = " ".join(status_parts)
+    visible_width = len(" ".join(plain_parts))
+    padding = " " * max(0, 8 - visible_width)
+
+    return f"  {bullet} {styled_name}  {styled_base}  {padding}{status}"
+
+
+def _collect_agent_rows() -> list[tuple[str, str, Path, int, int]]:
+    """Collect agent worktree data as (name, base, path, ahead, behind) rows."""
     result = git("worktree", "list", "--porcelain")
     entries: list[dict[str, str]] = []
     current: dict[str, str] = {}
@@ -192,11 +227,6 @@ def cmd_list() -> None:
 
     agent_entries = [e for e in entries if e.get("branch", "").startswith("agents/")]
 
-    if not agent_entries:
-        print("No active agent worktrees.")
-        return
-
-    # Collect display data for alignment
     rows = []
     for entry in agent_entries:
         path = Path(entry["path"])
@@ -205,7 +235,6 @@ def cmd_list() -> None:
         base = base_file.read_text().strip() if base_file.exists() else "?"
         name = branch.removeprefix("agents/")
 
-        # Get ahead/behind counts relative to base
         behind, ahead = 0, 0
         if base != "?":
             counts = run(["git", "rev-list", "--left-right", "--count", f"{base}...{branch}"])
@@ -216,31 +245,40 @@ def cmd_list() -> None:
 
         rows.append((name, base, path, ahead, behind))
 
+    return rows
+
+
+def cmd_list() -> None:
+    """Show active agent worktrees."""
+    rows = _collect_agent_rows()
+
+    if not rows:
+        print("No active agent worktrees.")
+        return
+
     name_width = max(len(r[0]) for r in rows)
     base_width = max(len(r[1]) for r in rows)
 
+    # Interactive fzf selection when available
+    if sys.stdout.isatty() and _has_fzf():
+        lines = []
+        for name, base, path, ahead, behind in rows:
+            display = _format_row(name, base, path, ahead, behind, name_width, base_width)
+            lines.append(f"{name}\t{display}")
+        result = subprocess.run(
+            ["fzf", "--ansi", "--no-sort", "--reverse",
+             "--height=~50%", "--delimiter=\t", "--with-nth=2.."],
+            input="\n".join(lines),
+            text=True,
+            stdout=subprocess.PIPE,
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            agent_name = result.stdout.strip().split("\t", 1)[0]
+            cmd_open(agent_name)
+        return
+
     for name, base, path, ahead, behind in rows:
-        # Status indicator
-        if behind > 0:
-            bullet = _color("33", "●")  # yellow = stale
-        else:
-            bullet = _color("32", "●")  # green = up to date
-
-        styled_name = _color("1;36", name.ljust(name_width))
-        styled_base = _color("33", base.ljust(base_width))
-
-        # Ahead/behind summary
-        status_parts = []
-        if ahead > 0:
-            status_parts.append(_color("32", f"↑{ahead}"))
-        if behind > 0:
-            status_parts.append(_color("31", f"↓{behind}"))
-        if not status_parts:
-            status_parts.append(_color("2", "clean"))
-        status = " ".join(status_parts)
-
-        styled_path = _color("2", _short_path(path))
-        print(f"  {bullet} {styled_name}  {styled_base}  {status:>12}  {styled_path}")
+        print(_format_row(name, base, path, ahead, behind, name_width, base_width))
 
 
 def cmd_merge() -> None:
