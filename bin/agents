@@ -156,6 +156,20 @@ def _has_tmux() -> bool:
     return run(["which", "tmux"]).returncode == 0
 
 
+def _color(code: str, text: str) -> str:
+    if not sys.stdout.isatty():
+        return text
+    return f"\033[{code}m{text}\033[0m"
+
+
+def _short_path(path: Path) -> str:
+    home = Path.home()
+    try:
+        return "~/" + str(path.relative_to(home))
+    except ValueError:
+        return str(path)
+
+
 def cmd_list() -> None:
     """Show active agent worktrees."""
     result = git("worktree", "list", "--porcelain")
@@ -182,11 +196,51 @@ def cmd_list() -> None:
         print("No active agent worktrees.")
         return
 
+    # Collect display data for alignment
+    rows = []
     for entry in agent_entries:
         path = Path(entry["path"])
+        branch = entry["branch"]
         base_file = path / ".agents-base"
         base = base_file.read_text().strip() if base_file.exists() else "?"
-        print(f"  {entry['branch']}  (base: {base})  {path}")
+        name = branch.removeprefix("agents/")
+
+        # Get ahead/behind counts relative to base
+        behind, ahead = 0, 0
+        if base != "?":
+            counts = run(["git", "rev-list", "--left-right", "--count", f"{base}...{branch}"])
+            if counts.returncode == 0:
+                parts = counts.stdout.strip().split()
+                if len(parts) == 2:
+                    behind, ahead = int(parts[0]), int(parts[1])
+
+        rows.append((name, base, path, ahead, behind))
+
+    name_width = max(len(r[0]) for r in rows)
+    base_width = max(len(r[1]) for r in rows)
+
+    for name, base, path, ahead, behind in rows:
+        # Status indicator
+        if behind > 0:
+            bullet = _color("33", "●")  # yellow = stale
+        else:
+            bullet = _color("32", "●")  # green = up to date
+
+        styled_name = _color("1;36", name.ljust(name_width))
+        styled_base = _color("33", base.ljust(base_width))
+
+        # Ahead/behind summary
+        status_parts = []
+        if ahead > 0:
+            status_parts.append(_color("32", f"↑{ahead}"))
+        if behind > 0:
+            status_parts.append(_color("31", f"↓{behind}"))
+        if not status_parts:
+            status_parts.append(_color("2", "clean"))
+        status = " ".join(status_parts)
+
+        styled_path = _color("2", _short_path(path))
+        print(f"  {bullet} {styled_name}  {styled_base}  {status:>12}  {styled_path}")
 
 
 def cmd_merge() -> None:
