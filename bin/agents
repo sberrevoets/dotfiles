@@ -252,6 +252,59 @@ def cmd_done() -> None:
     kill_tmux_window(name)
 
 
+def find_agent_worktree(name: str) -> Optional[Path]:
+    """Find the path of an agent worktree by name from git worktree list."""
+    branch = f"agents/{name}"
+    result = git("worktree", "list", "--porcelain")
+    current: dict[str, str] = {}
+    for line in result.stdout.splitlines():
+        if line.startswith("worktree "):
+            if current.get("branch") == f"refs/heads/{branch}":
+                return Path(current["path"])
+            current = {"path": line.split(" ", 1)[1]}
+        elif line.startswith("branch "):
+            current["branch"] = line.split(" ", 1)[1]
+    if current.get("branch") == f"refs/heads/{branch}":
+        return Path(current["path"])
+    return None
+
+
+def cmd_open(name: Optional[str]) -> None:
+    """Open a tmux window for an existing agent worktree."""
+    if name is None:
+        if is_agent_worktree():
+            name = current_branch().removeprefix("agents/")
+        else:
+            print("Error: specify an agent name, or run from inside an agent worktree.")
+            sys.exit(1)
+
+    wt_dir = find_agent_worktree(name)
+    if wt_dir is None or not wt_dir.exists():
+        print(f"Error: no agent worktree found for '{name}'.")
+        print("Run 'agents list' to see active worktrees.")
+        sys.exit(1)
+
+    # Kill stale tmux window if one exists
+    kill_tmux_window(name)
+
+    tmux_name = f"[agent] {name}"
+    if os.environ.get("TMUX"):
+        subprocess.run(
+            ["tmux", "new-window", "-n", tmux_name, "-c", str(wt_dir)],
+            check=True,
+        )
+    elif _has_tmux():
+        session_name = f"agent-{name}"
+        subprocess.run(
+            ["tmux", "new-session", "-d", "-s", session_name, "-c", str(wt_dir)],
+            check=True,
+        )
+        print(f"Created tmux session: {session_name}")
+        print(f"Attach with: tmux attach -t {session_name}")
+    else:
+        print(f"cd {wt_dir}")
+
+
 def cmd_clean() -> None:
     """Remove all agent worktrees + their branches."""
     prune_stale()
@@ -312,6 +365,10 @@ def main() -> None:
     new_parser.add_argument("name", nargs="?", help="Name for the worktree")
 
     sub.add_parser("list", help="List active agent worktrees")
+
+    open_parser = sub.add_parser("open", help="Open tmux window for an existing agent worktree")
+    open_parser.add_argument("name", nargs="?", help="Name of the agent worktree")
+
     sub.add_parser("merge", help="Merge agent branch back to base")
     sub.add_parser("rm", help="Remove current agent worktree")
     sub.add_parser("clean", help="Clean up stale worktrees")
@@ -329,6 +386,8 @@ def main() -> None:
         cmd_new(args.name)
     elif args.command == "list":
         cmd_list()
+    elif args.command == "open":
+        cmd_open(args.name)
     elif args.command == "merge":
         cmd_merge()
     elif args.command == "rm":
