@@ -13,9 +13,10 @@ install() {
     mkdir -p "$install_dir"
     ln -s $DOTFILES/vim/init.lua ~/.config/nvim/init.lua
 
-    python3 -m pyenv virtualenv nvim-venv
-    pyenv activate nvim-venv
-    pip install --user --upgrade pynvim
+    if ! pyenv versions --bare | grep -q '^nvim-venv$'; then
+        pyenv virtualenv nvim-venv
+    fi
+    ~/.pyenv/versions/nvim-venv/bin/pip install --upgrade pynvim
 }
 
 uninstall() {

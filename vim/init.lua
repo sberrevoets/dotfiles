@@ -15,8 +15,6 @@ vim.keymap.set("n", "<leader>rl", function()
   vim.cmd("luafile " .. config_file)
 end, { desc = "Reload config" })
 
-local nvim_lsp = require("lspconfig")
-
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>o", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Telescope find git files" })
@@ -26,40 +24,36 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help ta
 
 vim.keymap.set("n", "<leader>0", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 
-local on_attach = function(client, bufnr)
-  if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint.enable(true, { bufnr })
-  end
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    local bufnr = args.buf
 
-  local function buf_set_keymap(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
-  local function buf_set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
-  end
+    if client and client.server_capabilities.inlayHintProvider then
+      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end
 
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-  local opts = { noremap = true, silent = true }
+    local opts = { noremap = true, silent = true, buffer = bufnr }
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  buf_set_keymap("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-  buf_set_keymap("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "gp", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "gn", vim.diagnostic.goto_next, opts)
 
-  buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  buf_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  buf_set_keymap("n", "<space>fx", "<cmd>lua vim.lsp.buf.code_action({apply = true})<CR>", opts)
-  buf_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-end
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+    vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<space>fx", function() vim.lsp.buf.code_action({ apply = true }) end, opts)
+    vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
+    vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format() end, opts)
+  end,
+})
 
 local cmp = require("cmp")
 
@@ -129,20 +123,14 @@ cmp.setup.cmdline(":", {
   },
 })
 
--- Setup lspconfig.
+-- Setup LSP servers
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { "pyright", "ts_ls", "eslint", "sourcekit", "bashls", "marksman" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    },
-  })
-end
 
-require("lspconfig").lua_ls.setup({
+vim.lsp.config("*", {
+  capabilities = capabilities,
+})
+
+vim.lsp.config("lua_ls", {
   on_init = function(client)
     client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
       runtime = { version = "LuaJIT" },
@@ -152,7 +140,6 @@ require("lspconfig").lua_ls.setup({
       },
     })
   end,
-  on_attach = on_attach,
   settings = {
     Lua = {
       hint = {
@@ -161,6 +148,8 @@ require("lspconfig").lua_ls.setup({
     },
   },
 })
+
+vim.lsp.enable({ "pyright", "ts_ls", "eslint", "sourcekit", "bashls", "marksman", "lua_ls" })
 
 require("nvim-tree").setup({
   update_focused_file = { enable = true },
