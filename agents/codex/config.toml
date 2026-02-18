@@ -1,0 +1,4 @@
+personality = "pragmatic"
+model = "gpt-5.3-codex"
+notify = ["afplay", "/System/Library/Sounds/Ping.aiff"]
+commit_attribution = ""

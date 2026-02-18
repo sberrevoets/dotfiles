@@ -43,6 +43,7 @@ Temporary Items
 *.build
 *.swiftpm
 
-# Claude
+# AI Agents
 .claude
 .agents-base
+agents/skills/.system

@@ -75,5 +75,5 @@ fi
 # Install node
 ./nvm/install.sh install
 
-# Install Claude Code
-./claude/install.sh install
+# Install Claude Code + Codex CLI
+./agents/install.sh install

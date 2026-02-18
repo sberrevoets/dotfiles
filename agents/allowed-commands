@@ -1,0 +1,45 @@
+# Git
+git branch
+git diff
+git fetch
+git log
+git remote -v
+git show
+git status
+git -C
+
+# GitHub CLI
+gh api
+gh pr list
+gh pr view
+gh issue list
+gh issue view
+gh repo view
+
+# Read-only utilities
+ag
+awk
+cat
+date
+echo
+env
+file
+find
+grep
+head
+ls
+man
+printenv
+pwd
+rg
+tail
+tree
+wc
+which
+
+# Swift / Xcode
+swift build
+swift test
+flowdeck
+swiftlint
+xcrun simctl

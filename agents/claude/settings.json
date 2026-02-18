@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "model": "opus",
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Ping.aiff"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git branch*)",
+      "Bash(git diff*)",
+      "Bash(git fetch*)",
+      "Bash(git log*)",
+      "Bash(git remote -v*)",
+      "Bash(git show*)",
+      "Bash(git status*)",
+      "Bash(git -C*)",
+      "Bash(gh api*)",
+      "Bash(gh pr list*)",
+      "Bash(gh pr view*)",
+      "Bash(gh issue list*)",
+      "Bash(gh issue view*)",
+      "Bash(gh repo view*)",
+      "Bash(ag*)",
+      "Bash(awk*)",
+      "Bash(cat*)",
+      "Bash(date*)",
+      "Bash(echo*)",
+      "Bash(env*)",
+      "Bash(file*)",
+      "Bash(find*)",
+      "Bash(grep*)",
+      "Bash(head*)",
+      "Bash(ls*)",
+      "Bash(man*)",
+      "Bash(printenv*)",
+      "Bash(pwd*)",
+      "Bash(rg*)",
+      "Bash(tail*)",
+      "Bash(tree*)",
+      "Bash(wc*)",
+      "Bash(which*)",
+      "Bash(swift build*)",
+      "Bash(swift test*)",
+      "Bash(flowdeck*)",
+      "Bash(swiftlint*)",
+      "Bash(xcrun simctl*)",
+      "Read",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "Task",
+      "mcp__Linear__*",
+      "mcp__XcodeBuildMCP__*",
+      "mcp__xcode__*"
+    ],
+    "deny": []
+  }
+}
