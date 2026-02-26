@@ -64,6 +64,9 @@ if [ "$(uname)" = "Darwin" ]; then
 
     # Set zsh shell to brew-installed zsh
     set_zsh_shell
+
+    # Rebuild bat cache so delta can find custom themes
+    bat cache --build
 fi
 
 # Install pyenv-managed Python
