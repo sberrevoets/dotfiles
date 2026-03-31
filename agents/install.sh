@@ -93,6 +93,7 @@ install() {
     link_file "$source_dir/skills" "$codex_dir/skills"
 
     # Claude-specific
+    link_file "$source_dir/claude/hooks" "$claude_dir/hooks"
     link_file "$source_dir/claude/settings.json" "$claude_dir/settings.json"
 
     # Codex-specific
@@ -108,6 +109,7 @@ uninstall() {
     unlink_file "$codex_dir/skills"
 
     # Claude-specific
+    unlink_file "$claude_dir/hooks"
     unlink_file "$claude_dir/settings.json"
 
     # Codex-specific
